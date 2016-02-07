@@ -3,7 +3,7 @@
 /**
  * Plugin Name:       GitHub Updater Additions
  * Plugin URI:        https://github.com/afragen/github-updater-additions
- * Description:       Add repositories lacking GitHub Updater headers to the GitHub Updater plugin via a JSON file.
+ * Description:       Add installed repositories lacking GitHub Updater headers to the GitHub Updater plugin via a JSON file.
  * Version:           1.0
  * Author:            Andy Fragen
  * License:           GNU General Public License v2

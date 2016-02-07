@@ -9,11 +9,11 @@
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A plugin that allows for adding plugins or themes hosted on GitHub, Bitbucket, or GitLab, that do not contain GitHub Updater headers to GitHub Updater.
+A plugin that allows for adding installed plugins or themes hosted on GitHub, Bitbucket, or GitLab, that do not contain GitHub Updater headers to GitHub Updater.
 
 ## Description
 
-This is a plugin that will add the appropriate data via hooks in GitHub Updater so that repositories that are not correctly configured to use GitHub Updater may be added to GitHub Updater without modifying the repository.
+This is a plugin that will add the appropriate data via hooks in GitHub Updater so that repositories that are not correctly configured to use GitHub Updater may be added to GitHub Updater without modifying the repository. This only really works for installed plugins/themes.
 
 A properly configured JSON file must reside in the root directory of this plugin.
 
