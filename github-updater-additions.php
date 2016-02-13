@@ -15,6 +15,11 @@
  * Requires PHP:      5.3
  */
 
+/**
+ * Requires GitHub Updater plugin.
+ * @since   5.4.0
+ * @access  public
+ */
 namespace Fragen\GitHub_Updater;
 
 add_filter( 'github_updater_additions', function ( $config, $repos, $type ) {
