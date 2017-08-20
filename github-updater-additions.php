@@ -22,7 +22,7 @@
  */
 namespace Fragen\GitHub_Updater;
 
-add_filter( 'github_updater_additions', function ( $config, $repos, $type ) {
+add_filter( 'github_updater_additions', function ( $false, $repos, $type ) {
 	$config    = file_get_contents( __DIR__ . '/github-updater-additions.json' );
 	$additions = Additions::instance();
 	$additions->register( $config, $repos, $type );
