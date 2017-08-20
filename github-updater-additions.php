@@ -10,7 +10,6 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
  * Network:           true
  * GitHub Plugin URI: https://github.com/afragen/github-updater-additions
- * GitHub Branch:     master
  * Requires WP:       4.4
  * Requires PHP:      5.3
  */
