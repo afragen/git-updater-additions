@@ -1,12 +1,12 @@
 [
   {
     "type": "github_plugin",
-    "slug": "plugin-noheader/plugin-noheader.php",
-    "uri": "https://github.com/afragen/plugin-noheader"
+    "slug": "sugar-event-calendar/sugar-calendar.php",
+    "uri": "https://github.com/sugarcalendar/sugar-event-calendar"
   },
   {
-    "type": "bitbucket_theme",
-    "slug": "theme-noheader",
-    "uri": "https://bitbucket.org/afragen/theme-noheader"
+    "type": "gitlab_plugin",
+    "slug": "wp-simple-calendar/wp-simple-calendar.php",
+    "uri": "https://gitlab.com/9seeds/plugins/wp-simple-calendar"
   }
 ]
