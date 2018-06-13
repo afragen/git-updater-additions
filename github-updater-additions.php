@@ -29,13 +29,15 @@ namespace Fragen\GitHub_Updater;
 
 use Fragen\Singleton;
 
-add_filter( 'github_updater_additions', function( $false, $repos, $type ) {
-	$config    = file_get_contents( __DIR__ . '/github-updater-additions.json' );
-	$additions = new Additions();
-	$additions->register( $config, $repos, $type );
+add_filter(
+	'github_updater_additions', function( $false, $repos, $type ) {
+		$config    = file_get_contents( __DIR__ . '/github-updater-additions.json' );
+		$additions = new Additions();
+		$additions->register( $config, $repos, $type );
 
-	return $additions->add_to_github_updater;
-}, 10, 3 );
+		return $additions->add_to_github_updater;
+	}, 10, 3
+);
 
 /**
  * Class Additions
