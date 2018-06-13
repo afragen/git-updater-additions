@@ -15,7 +15,7 @@
  * Plugin Name:       GitHub Updater Additions
  * Plugin URI:        https://github.com/afragen/github-updater-additions
  * Description:       Add installed repositories lacking required headers to the GitHub Updater plugin via a JSON file.
- * Version:           2.0.0
+ * Version:           2.0.1
  * Author:            Andy Fragen
  * License:           GNU General Public License v2
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
@@ -29,13 +29,15 @@ namespace Fragen\GitHub_Updater;
 
 use Fragen\Singleton;
 
-add_filter( 'github_updater_additions', function( $false, $repos, $type ) {
-	$config    = file_get_contents( __DIR__ . '/github-updater-additions.json' );
-	$additions = new Additions();
-	$additions->register( $config, $repos, $type );
+add_filter(
+	'github_updater_additions', function( $false, $repos, $type ) {
+		$config    = file_get_contents( __DIR__ . '/github-updater-additions.json' );
+		$additions = new Additions();
+		$additions->register( $config, $repos, $type );
 
-	return $additions->add_to_github_updater;
-}, 10, 3 );
+		return $additions->add_to_github_updater;
+	}, 10, 3
+);
 
 /**
  * Class Additions
