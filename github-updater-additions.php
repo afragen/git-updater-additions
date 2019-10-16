@@ -17,8 +17,7 @@
  * Description:       Add installed repositories lacking required headers to the GitHub Updater plugin via a JSON file.
  * Version:           2.0.1.1
  * Author:            Andy Fragen
- * License:           GNU General Public License v2
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+ * License:           MIT
  * Network:           true
  * GitHub Plugin URI: https://github.com/afragen/github-updater-additions
  * Requires WP:       4.6

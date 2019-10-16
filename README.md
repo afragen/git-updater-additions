@@ -6,8 +6,7 @@
 * Tested up to: 5.3
 * Stable tag: master
 * Donate link: http://thefragens.com/github-updater-donate
-* License: GPLv2 or later
-* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* License: MIT
 
 A plugin that allows for adding installed plugins or themes hosted on GitHub, Bitbucket, GitLab, or Gitea that do not contain required headers to GitHub Updater.
 
