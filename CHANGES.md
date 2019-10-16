@@ -1,3 +1,6 @@
+##### [unreleased]
+* updated for GitHub Updater v9.0.0
+
 #### 2.0.1
 * wcps linter fixes
 
