@@ -107,7 +107,7 @@ class Additions {
 			$file_path = 'theme' === $type ? get_theme_root() . "/{$repo['slug']}/style.css" : $file_path;
 
 			if ( ! file_exists( $file_path ) ) {
-				return;
+				continue;
 			}
 
 			$all_headers = Singleton::get_instance( 'Base', $this )->get_headers( $type );
