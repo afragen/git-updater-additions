@@ -15,7 +15,7 @@
  * Plugin Name:       GitHub Updater Additions
  * Plugin URI:        https://github.com/afragen/github-updater-additions
  * Description:       Add installed repositories lacking required headers to the GitHub Updater plugin via a JSON file.
- * Version:           2.0.1.1
+ * Version:           2.0.1.3
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -102,9 +102,14 @@ class Additions {
 			$addition  = [];
 			$additions = [];
 
-			$type        = explode( '_', $repo['type'] )[1];
-			$file_path   = 'plugin' === $type ? WP_PLUGIN_DIR . "/{$repo['slug']}" : null;
-			$file_path   = 'theme' === $type ? get_theme_root() . "/{$repo['slug']}/style.css" : $file_path;
+			$type      = explode( '_', $repo['type'] )[1];
+			$file_path = 'plugin' === $type ? WP_PLUGIN_DIR . "/{$repo['slug']}" : null;
+			$file_path = 'theme' === $type ? get_theme_root() . "/{$repo['slug']}/style.css" : $file_path;
+
+			if ( ! file_exists( $file_path ) ) {
+				return;
+			}
+
 			$all_headers = Singleton::get_instance( 'Base', $this )->get_headers( $type );
 
 			$additions[ $repo['slug'] ]['type'] = $type;
