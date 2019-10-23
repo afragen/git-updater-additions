@@ -1,0 +1,22 @@
+{
+  "name": "afragen/github-updater-additions",
+  "description": "Add repositories to GitHub Updater that lack actual GitHub Updater headers.",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andy Fragen",
+      "email": "andy@thefragens.com",
+      "homepage": "https://thefragens.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/afragen/github-updater-additions/issues",
+    "source": "https://github.com/afragen/github-updater-additions"
+  },
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.6"
+  }
+}
