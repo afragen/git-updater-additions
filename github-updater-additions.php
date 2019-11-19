@@ -15,13 +15,12 @@
  * Plugin Name:       GitHub Updater Additions
  * Plugin URI:        https://github.com/afragen/github-updater-additions
  * Description:       Add installed repositories lacking required headers to the GitHub Updater plugin via a JSON file.
- * Version:           2.0.1
+ * Version:           3.0.0
  * Author:            Andy Fragen
- * License:           GNU General Public License v2
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+ * License:           MIT
  * Network:           true
  * GitHub Plugin URI: https://github.com/afragen/github-updater-additions
- * Requires WP:       4.4
+ * Requires at least: 4.6
  * Requires PHP:      5.6
  */
 
@@ -30,13 +29,16 @@ namespace Fragen\GitHub_Updater;
 use Fragen\Singleton;
 
 add_filter(
-	'github_updater_additions', function( $false, $repos, $type ) {
+	'github_updater_additions',
+	function( $false, $repos, $type ) {
 		$config    = file_get_contents( __DIR__ . '/github-updater-additions.json' );
 		$additions = new Additions();
 		$additions->register( $config, $repos, $type );
 
 		return $additions->add_to_github_updater;
-	}, 10, 3
+	},
+	10,
+	3
 );
 
 /**
@@ -48,7 +50,6 @@ add_filter(
  * @uses \Fragen\Singleton
  */
 class Additions {
-
 	/**
 	 * Holds array of plugin/theme headers to add to GitHub Updater.
 	 *
@@ -98,39 +99,38 @@ class Additions {
 	 */
 	public function add_headers( $config, $repos, $type ) {
 		foreach ( $config as $repo ) {
+			$addition  = [];
+			$additions = [];
 
-			// Continue if repo not installed.
-			if ( ! array_key_exists( $repo['slug'], $repos ) ) {
+			$type      = explode( '_', $repo['type'] )[1];
+			$file_path = 'plugin' === $type ? WP_PLUGIN_DIR . "/{$repo['slug']}" : null;
+			$file_path = 'theme' === $type ? get_theme_root() . "/{$repo['slug']}/style.css" : $file_path;
+
+			if ( ! file_exists( $file_path ) ) {
 				continue;
 			}
 
-			$addition                   = [];
-			$additions[ $repo['slug'] ] = [];
+			$all_headers = Singleton::get_instance( 'Base', $this )->get_headers( $type );
 
-			if ( 'plugin' === $type ) {
-				$additions[ $repo['slug'] ] = $repos[ $repo['slug'] ];
-			}
+			$additions[ $repo['slug'] ]['type'] = $type;
+			$additions[ $repo['slug'] ]         = get_file_data( $file_path, $all_headers );
 
 			switch ( $repo['type'] ) {
 				case 'github_plugin':
 				case 'github_theme':
-					$addition['slug']                                  = $repo['slug'];
-					$addition[ 'GitHub ' . ucwords( $type ) . ' URI' ] = $repo['uri'];
+					$addition[ 'GitHub' . ucwords( $type ) . 'URI' ] = $repo['uri'];
 					break;
 				case 'bitbucket_plugin':
 				case 'bitbucket_theme':
-					$addition['slug']                                     = $repo['slug'];
-					$addition[ 'Bitbucket ' . ucwords( $type ) . ' URI' ] = $repo['uri'];
+					$addition[ 'Bitbucket' . ucwords( $type ) . 'URI' ] = $repo['uri'];
 					break;
 				case 'gitlab_plugin':
 				case 'gitlab_theme':
-					$addition['slug']                                  = $repo['slug'];
-					$addition[ 'GitLab ' . ucwords( $type ) . ' URI' ] = $repo['uri'];
+					$addition[ 'GitLab' . ucwords( $type ) . 'URI' ] = $repo['uri'];
 					break;
 				case 'gitea_plugin':
 				case 'gitea_theme':
-					$addition['slug']                                 = $repo['slug'];
-					$addition[ 'Gitea ' . ucwords( $type ) . ' URI' ] = $repo['uri'];
+					$addition[ 'Gitea' . ucwords( $type ) . 'URI' ] = $repo['uri'];
 					break;
 			}
 
