@@ -1,3 +1,8 @@
+#### [unreleased]
+
+#### 3.0.0 / 2010-11-19
+* update for new version of GitHub Updater v9.0.0
+
 #### 2.0.1
 * wcps linter fixes
 
