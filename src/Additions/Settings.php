@@ -1,25 +1,21 @@
 <?php
 /**
- * GitHub Updater
+ * GitHub Updater Additions
  *
  * @author    Andy Fragen
- * @license   GPL-2.0+
- * @link      https://github.com/afragen/github-updater
- * @package   github-updater
+ * @license   MIT
+ * @link      https://github.com/afragen/github-updater-additions
+ * @package   github-updater-additions
  */
 
 namespace Fragen\GitHub_Updater\Additions;
 
-// use Fragen\GitHub_Updater\Traits\GHU_Trait;
-
 /**
- * Class Remote_Management
+ * Class Settings
  */
 class Settings {
-	// use GHU_Trait;
-
 	/**
-	 * Holds the values for remote management settings.
+	 * Holds the values for additions settings.
 	 *
 	 * @deprecated 9.1.0
 	 *
@@ -47,7 +43,7 @@ class Settings {
 
 
 	/**
-	 * Remote_Management constructor.
+	 * Settings constructor.
 	 */
 	public function __construct() {
 		$this->load_options();
@@ -64,8 +60,6 @@ class Settings {
 	 * Load needed action/filter hooks.
 	 */
 	public function load_hooks() {
-		add_action( 'admin_init', [ $this, 'additions_page_init' ] );
-
 		add_action(
 			'github_updater_update_settings',
 			function ( $post_data ) {
@@ -73,10 +67,19 @@ class Settings {
 			}
 		);
 		$this->add_settings_tabs();
+
+		add_filter(
+			'github_updater_add_admin_page',
+			function ( $tab, $action ) {
+				$this->add_admin_page( $tab, $action );
+			},
+			10,
+			2
+		);
 	}
 
 	/**
-	 * Save Remote Management settings.
+	 * Save Additions settings.
 	 *
 	 * @uses 'github_updater_update_settings' action hook
 	 * @uses 'github_updater_save_redirect' filter hook
@@ -108,8 +111,6 @@ class Settings {
 				update_site_option( 'github_updater_additions', $options );
 			}
 
-			// update_site_option( 'github_updater_additions', (array) $this->sanitize( $options ) );
-
 			add_filter(
 				'github_updater_save_redirect',
 				function ( $option_page ) {
@@ -120,7 +121,7 @@ class Settings {
 	}
 
 	/**
-	 * Adds Remote Management tab to Settings page.
+	 * Adds Additions tab to Settings page.
 	 */
 	public function add_settings_tabs() {
 		$install_tabs = [ 'github_updater_additions' => esc_html__( 'Additions', 'github-updater-additions' ) ];
@@ -131,14 +132,6 @@ class Settings {
 			},
 			20,
 			1
-		);
-		add_filter(
-			'github_updater_add_admin_page',
-			function ( $tab, $action ) {
-				$this->add_admin_page( $tab, $action );
-			},
-			10,
-			2
 		);
 	}
 
@@ -151,6 +144,8 @@ class Settings {
 	 * @param string $action Form action.
 	 */
 	public function add_admin_page( $tab, $action ) {
+		$this->additions_page_init();
+
 		if ( 'github_updater_additions' === $tab ) {
 			$action = add_query_arg( 'tab', $tab, $action );
 			( new Repo_List_Table() )->render_list_table();
@@ -219,21 +214,6 @@ class Settings {
 				'setting' => 'uri',
 			]
 		);
-
-		// @deprecated 9.1.0
-		// foreach ( self::$remote_management as $id => $name ) {
-		// add_settings_field(
-		// $id,
-		// null,
-		// array( $this, 'token_callback_checkbox_remote' ),
-		// 'github_updater_remote_settings',
-		// 'remote_management',
-		// array(
-		// 'id'    => $id,
-		// 'title' => esc_html( $name ),
-		// )
-		// );
-		// }
 	}
 
 	/**
@@ -276,14 +256,13 @@ class Settings {
 	}
 
 	public function callback_dropdown( $args ) {
-		// $options         = self::$options_additions;
 		$options['type'] = [ 'github_plugin' ];
 		?>
 		<label for="<?php esc_attr_e( $args['id'] ); ?>">
 		<select id="<?php esc_attr_e( $args['id'] ); ?>" name="github_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]">
 		<?php
 		foreach ( self::$addition_types as $item ) {
-			$selected = ( $options['type'] === $item ) ? 'selected="selected"' : '';
+			$selected = ( 'github_plugin' === $item ) ? 'selected="selected"' : '';
 			echo '<option value="' . $item . '" $selected>' . $item . '</option>';
 		}
 		?>

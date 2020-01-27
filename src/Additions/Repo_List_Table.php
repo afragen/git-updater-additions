@@ -206,7 +206,7 @@ class Repo_List_Table extends \WP_List_Table {
 			 **************************************************************************/
 	public function get_sortable_columns() {
 		$sortable_columns = [
-			'slug' => [ 'slug', false ],     // true means it's already sorted.
+			'slug' => [ 'slug', true ],     // true means it's already sorted.
 			'type' => [ 'type', true ],
 			// 'api_key' => [ 'api_key', false ],
 		];
@@ -248,11 +248,11 @@ class Repo_List_Table extends \WP_List_Table {
 		if ( 'delete' === $this->current_action() ) {
 			$this->check_nonce();
 			// phpcs:ignore WordPress.Security.NonceVerification
-			$sites = isset( $_REQUEST['slug'] ) ? $_REQUEST['slug'] : null;
-			$sites = is_array( $sites ) ? $sites : (array) $sites;
-			foreach ( $sites as $site ) {
+			$slugs = isset( $_REQUEST['slug'] ) ? $_REQUEST['slug'] : null;
+			$slugs = is_array( $slugs ) ? $slugs : (array) $slugs;
+			foreach ( $slugs as $slug ) {
 				foreach ( self::$options as $key => $option ) {
-					if ( in_array( $site, $option, true ) ) {
+					if ( in_array( $slug, $option, true ) ) {
 						unset( self::$options[ $key ] );
 						update_site_option( 'github_updater_additions', self::$options );
 					}
