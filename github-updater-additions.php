@@ -15,7 +15,7 @@
  * Plugin Name:       GitHub Updater Additions
  * Plugin URI:        https://github.com/afragen/github-updater-additions
  * Description:       Add installed repositories lacking required headers to the GitHub Updater plugin via a JSON file.
- * Version:           3.0.0
+ * Version:           3.0.0.1
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true

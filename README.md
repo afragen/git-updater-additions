@@ -14,30 +14,9 @@ A plugin that allows for adding installed plugins or themes hosted on GitHub, Bi
 
 This is a plugin that will add the appropriate data via hooks in GitHub Updater so that repositories that are not correctly configured to use GitHub Updater may be added to GitHub Updater without modifying the repository. This only works for installed plugins/themes.
 
-A properly configured JSON file must reside in the root directory of this plugin.
+There is an **Additions** tab inside the GitHub Updater Settings for updating settings to this plugin. There are 2 examples, one plugin and one theme. They do not affect function and are just examples. You cannot remove them.
 
 ## Installation
-
-Adapt the `github-updater-additions.json` file to your needs.
-
-## JSON config file format
-
-This file must be named `github-updater-additions.json`.
-
-```json
-[
-  {
-    "type": "github_plugin",
-    "slug": "plugin-noheader/plugin-noheader.php",
-    "uri": "https://github.com/afragen/plugin-noheader"
-  },
-  {
-    "type": "bitbucket_theme",
-    "slug": "theme-noheader",
-    "uri": "https://bitbucket.org/afragen/theme-noheader"
-  }
-]
-```
 
 The `"type"` element is from the following list.
 
