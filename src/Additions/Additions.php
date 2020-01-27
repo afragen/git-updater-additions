@@ -28,7 +28,7 @@ class Additions {
 	 * Holds array of plugin/theme headers to add to GitHub Updater.
 	 *
 	 * @access public
-	 * @var    array
+	 * @var array
 	 */
 	public $add_to_github_updater;
 
@@ -37,20 +37,14 @@ class Additions {
 	 *
 	 * @access public
 	 *
-	 * @param string $json_config The repo config, in JSON.
-	 * @param array  $repos       The repos to pull from.
-	 * @param string $type        The plugin type ('plugin' or 'theme').
+	 * @param string $config The repo config.
+	 * @param array  $repos  The repos to pull from.
+	 * @param string $type   The plugin type ('plugin' or 'theme').
 	 *
 	 * @return bool
 	 */
-	public function register( $json_config, $repos, $type ) {
-		if ( empty( $json_config ) ) {
-			return false;
-		}
-		if ( null === ( $config = json_decode( $json_config, true ) ) ) {
-			$error = new \WP_Error( 'json_invalid', 'JSON ' . json_last_error_msg() );
-			Singleton::get_instance( 'Messages', $this )->create_error_message( $error );
-
+	public function register( $config, $repos, $type ) {
+		if ( empty( $config ) ) {
 			return false;
 		}
 
@@ -111,5 +105,4 @@ class Additions {
 			$this->add_to_github_updater[ $repo['slug'] ] = array_merge( $additions[ $repo['slug'] ], $addition );
 		}
 	}
-
 }
