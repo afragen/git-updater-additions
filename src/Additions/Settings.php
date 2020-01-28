@@ -146,8 +146,21 @@ class Settings {
 	public function add_admin_page( $tab, $action ) {
 		$this->additions_page_init();
 
+		// Kludge for "redirect" after WP_List_Table bulk actions.
+		// Doesn't work 🤬🤷‍♂️
+		if ( isset( $_REQUEST['_wpnonce_list'] ) ) {
+			// $tab = 'github_updater_additions';
+			$_REQUEST['tab'] = 'github_updater_additions';
+		}
+
 		if ( 'github_updater_additions' === $tab ) {
-			$action = add_query_arg( 'tab', $tab, $action );
+			$action = add_query_arg(
+				[
+					'page' => 'github-updater',
+					'tab'  => $tab,
+				],
+				$action
+			);
 			( new Repo_List_Table() )->render_list_table();
 			?>
 			<form class="settings" method="post" action="<?php esc_attr_e( $action ); ?>">
