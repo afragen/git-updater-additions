@@ -17,8 +17,6 @@ This is a plugin that will add the appropriate data via hooks in GitHub Updater 
 
 This plugin adds an **Additions** tab inside the GitHub Updater Settings for updating settings to this plugin.
 
-![GitHub Updater Additions Settings Tab](./assets/screenshot-1.png)
-
 ## Usage
 
 The `"type"` element is from the following list.
@@ -50,7 +48,9 @@ The `"uri"` element should be self-explanatory.
     slug: theme-noheader
     uri: https://bitbucket.org/afragen/theme-noheader
 
-
 ## Development
 
 PRs are welcome against the `develop` branch.
+
+## Screenshots
+1. GitHub Updater Additions Settings tab

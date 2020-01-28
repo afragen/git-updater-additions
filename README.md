@@ -36,7 +36,6 @@ The `"slug"` element is either the plugin slug or the theme stylesheet slug.
 The `"uri"` element should be self-explanatory.
 
 ### Example
-
 #### Plugin
 ```
 type: github_plugin
@@ -52,5 +51,4 @@ uri: https://bitbucket.org/afragen/theme-noheader/
 ```
 
 ## Development
-
 PRs are welcome against the `develop` branch.
