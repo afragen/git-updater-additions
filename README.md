@@ -38,15 +38,15 @@ The `"uri"` element should be self-explanatory.
 #### Plugin
 ```
 type: github_plugin
-slug: my-plugin/my-plugin.php
-uri: https://github.com/me/my-plugin
+slug: plugin-noheader/plugin-noheader.php
+uri: https://github.com/afragen/plugin-noheader
 ```
 
 #### Theme
 ```
 type: bitbucket_theme
-slug: my-theme
-uri: https://bitbucket.org/me/my-theme
+slug: theme-noheader
+uri: https://bitbucket.org/afragen/theme-noheader/
 ```
 
 ## Development
