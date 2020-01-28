@@ -233,7 +233,7 @@ class Repo_List_Table extends \WP_List_Table {
 			'delete' => esc_html__( 'Delete', 'github-updater-additions' ),
 		];
 
-		return $actions;
+		// return $actions;
 	}
 
 			/** ************************************************************************
