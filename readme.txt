@@ -48,7 +48,7 @@ The `"uri"` element should be self-explanatory.
 
     type: bitbucket_theme
     slug: theme-noheader
-    uri: https://bitbucket.org/afragen/theme-noheader/
+    uri: https://bitbucket.org/afragen/theme-noheader
 
 
 ## Development
