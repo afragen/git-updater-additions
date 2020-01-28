@@ -87,7 +87,6 @@ class Settings {
 	 * @param array $post_data $_POST data.
 	 */
 	public function save_settings( $post_data ) {
-		// delete_site_option('github_updater_additions');
 		$options   = get_site_option( 'github_updater_additions', [] );
 		$duplicate = false;
 		if ( isset( $post_data['option_page'] ) &&
@@ -174,7 +173,6 @@ class Settings {
 		register_setting(
 			'github_updater_additions',
 			'github_updater_additions',
-			// [ $this, 'sanitize' ]
 			null
 		);
 
@@ -249,6 +247,13 @@ class Settings {
 		echo '</p>';
 	}
 
+	/**
+	 * Field callback.
+	 *
+	 * @param array $args Data passed from add_settings_field().
+	 *
+	 * @return void
+	 */
 	public function callback_field( $args ) {
 		?>
 		<label for="<?php esc_attr_e( $args['id'] ); ?>">
@@ -261,6 +266,13 @@ class Settings {
 		<?php
 	}
 
+	/**
+	 * Dropdown callback.
+	 *
+	 * @param arra $args Data passed from add_settings_field().
+	 *
+	 * @return void
+	 */
 	public function callback_dropdown( $args ) {
 		$options['type'] = [ 'github_plugin' ];
 		?>
@@ -269,7 +281,7 @@ class Settings {
 		<?php
 		foreach ( self::$addition_types as $item ) {
 			$selected = ( 'github_plugin' === $item ) ? 'selected="selected"' : '';
-			echo '<option value="' . $item . '" $selected>' . $item . '</option>';
+			echo '<option value="' . esc_attr( $item ) . '" $selected>' . esc_attr( $item ) . '</option>';
 		}
 		?>
 		</select>

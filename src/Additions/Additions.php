@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Requires GitHub Updater plugin.
  *
