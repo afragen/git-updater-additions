@@ -1,5 +1,9 @@
 #### [unreleased]
 
+#### 4.0.0 / 2010-01-28
+* Refactored to use a Settings tab within GitHub Updater
+* saves data in options table
+
 #### 3.0.0 / 2010-11-19
 * update for new version of GitHub Updater v9.0.0
 
