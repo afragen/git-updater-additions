@@ -35,22 +35,22 @@ The `"slug"` element is either the plugin slug or the theme stylesheet slug.
 
 The `"uri"` element should be self-explanatory.
 
-### Example
+### Examples
 
-#### Plugin
 ```
 type: github_plugin
 slug: plugin-noheader/plugin-noheader.php
 uri: https://github.com/afragen/plugin-noheader
 ```
+or
 
-#### Theme
 ```
 type: bitbucket_theme
 slug: theme-noheader
-uri: https://bitbucket.org/afragen/theme-noheader/
+uri: https://bitbucket.org/afragen/theme-noheader
 ```
 
-## Development
+Above are examples for a plugin or a theme. Please notice the diffence in the `slug`.
 
+## Development
 PRs are welcome against the `develop` branch.
