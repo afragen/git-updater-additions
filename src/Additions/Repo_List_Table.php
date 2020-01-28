@@ -430,7 +430,7 @@ class Repo_List_Table extends \WP_List_Table {
 		// Fetch, prepare, sort, and filter our data...
 		$this->prepare_items();
 		echo '<div class="wrap">';
-		echo '<h2>' . esc_html__( 'Additions', 'github-updater-additions' ) . '</h2>';
+		echo '<h2>' . esc_html__( 'Additions List Table', 'github-updater-additions' ) . '</h2>';
 
 		// Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions.
 		echo '<form id="sites-list" method="get">';
