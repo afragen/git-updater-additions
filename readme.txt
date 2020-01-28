@@ -1,6 +1,6 @@
 # GitHub Updater Additions
 
-* Contributors: [Andy Fragen](https://github.com/afragen), [contributors](https://github.com/afragen/github-updater-additions/graphs/contributors)
+* Contributors: afragen
 * Tags: plugin, theme, github-updater, extension
 * Requires at least: 4.6
 * Requires PHP: 5.6
