@@ -34,9 +34,9 @@ class Repo_List_Table extends \WP_List_Table {
 	 *
 	 * @var array
 	 */
-	protected static $options;
+	protected static $options = [];
 
-	protected static $examples;
+	protected static $examples = [];
 
 	/**
 	 * Constructor.
@@ -44,7 +44,7 @@ class Repo_List_Table extends \WP_List_Table {
 	public function __construct() {
 		global $status, $page;
 
-		$examples       = [
+		$examples = [
 			[
 				'ID'   => md5( 'plugin-noheader/plugin-noheader.php' ),
 				'type' => 'github_plugin',
@@ -58,8 +58,8 @@ class Repo_List_Table extends \WP_List_Table {
 				'uri'  => 'https://bitbucket.org/afragen/theme-noheader/',
 			],
 		];
-		self::$examples = $examples;
-		self::$options  = get_site_option( 'github_updater_additions', [] );
+		// self::$examples = $examples;
+		self::$options = get_site_option( 'github_updater_additions', [] );
 
 		// Set parent defaults.
 		parent::__construct(

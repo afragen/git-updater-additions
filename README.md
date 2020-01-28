@@ -33,6 +33,22 @@ The `"slug"` element is either the plugin slug or the theme stylesheet slug.
 
 The `"uri"` element should be self-explanatory.
 
+### Example
+
+#### Plugin
+```
+type: github_plugin
+slug: my-plugin/my-plugin.php
+uri: https://github.com/me/my-plugin
+```
+
+#### Theme
+```
+type: bitbucket_theme
+slug: my-theme
+uri: https://bitbucket.org/me/my-theme
+```
+
 ## Development
 
 PRs are welcome against the `develop` branch.
