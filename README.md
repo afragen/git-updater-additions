@@ -14,7 +14,9 @@ A plugin that allows for adding installed plugins or themes hosted on GitHub, Bi
 
 This is a plugin that will add the appropriate data via hooks in GitHub Updater so that repositories that are not correctly configured to use GitHub Updater may be added to GitHub Updater without modifying the repository. This only works for installed plugins/themes.
 
-This plugin adds an **Additions** tab inside the GitHub Updater Settings for updating settings to this plugin. There are 2 examples, one plugin and one theme. They do not affect function and are just examples. You cannot remove them.
+This plugin adds an **Additions** tab inside the GitHub Updater Settings for updating settings to this plugin.
+
+![GitHub Updater Additions Settings Tab](./assets/screenshot-1.png)
 
 ## Usage
 
