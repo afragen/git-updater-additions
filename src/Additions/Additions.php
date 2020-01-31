@@ -1,13 +1,11 @@
 <?php
 /**
- * Requires GitHub Updater plugin.
+ * GitHub Updater Additions
  *
- * @package Fragen\GitHub_Updater\Additions
- * @author  Andy Fragen
- * @link    https://github.com/afragen/github-updater-additions
- *
- * @since   5.4.0
- * @access  public
+ * @author    Andy Fragen
+ * @license   MIT
+ * @link      https://github.com/afragen/github-updater-additions
+ * @package   github-updater-additions
  */
 
 namespace Fragen\GitHub_Updater\Additions;

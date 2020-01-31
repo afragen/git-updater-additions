@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 4.0.1 / 2020-01-31
+* add `uninstall.php`
+
 #### 4.0.0 / 2010-01-28
 * Refactored to use a Settings tab within GitHub Updater
 * saves data in options table

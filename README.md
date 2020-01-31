@@ -42,6 +42,7 @@ type: github_plugin
 slug: plugin-noheader/plugin-noheader.php
 uri: https://github.com/afragen/plugin-noheader
 ```
+
 or
 
 ```
