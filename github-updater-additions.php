@@ -1,13 +1,12 @@
 <?php
 /**
+ * GitHub Updater Additions.
  * Requires GitHub Updater plugin.
  *
- * @package Fragen\GitHub_Updater
+ * @package github-updater-additions
  * @author  Andy Fragen
  * @link    https://github.com/afragen/github-updater-additions
- *
- * @since   5.4.0
- * @access  public
+ * @link	https://github.com/afragen/github-updater
  */
 
 /**
@@ -18,6 +17,8 @@
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
+ * Domain Path:       /languages
+ * Text Domain:       github-updater-additions
  * GitHub Plugin URI: https://github.com/afragen/github-updater-additions
  * Requires at least: 4.6
  * Requires PHP:      5.6
