@@ -13,7 +13,7 @@
  * Plugin Name:       GitHub Updater Additions
  * Plugin URI:        https://github.com/afragen/github-updater-additions
  * Description:       Add installed repositories lacking required headers to the GitHub Updater plugin.
- * Version:           4.0.1
+ * Version:           4.0.1.1
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -39,4 +39,9 @@ if ( ! defined( 'WPINC' ) ) {
 // Load Autoloader.
 require_once __DIR__ . '/vendor/autoload.php';
 
-( new Bootstrap( __FILE__ ) )->run();
+add_action(
+	'plugins_loaded',
+	function() {
+		( new Bootstrap( __FILE__ ) )->run();
+	}
+);

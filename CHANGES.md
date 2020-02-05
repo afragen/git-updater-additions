@@ -1,4 +1,5 @@
 #### [unreleased]
+* ensure GitHub Updater is running
 
 #### 4.0.1 / 2020-01-31
 * add `uninstall.php`
