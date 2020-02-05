@@ -60,6 +60,11 @@ class Bootstrap {
 	 * @return void
 	 */
 	public function run() {
+		// Exit if GitHub Updater not running.
+		if ( ! class_exists( '\\Fragen\\GitHub_Updater\\Bootstrap' ) ) {
+			return false;
+		}
+
 		add_filter(
 			'github_updater_additions',
 			function( $false, $repos, $type ) {
@@ -75,6 +80,4 @@ class Bootstrap {
 
 		( new Settings() )->load_hooks();
 	}
-
-
 }
