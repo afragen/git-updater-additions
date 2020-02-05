@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 4.0.2 / 2020-02-05
 * ensure GitHub Updater is running
 
 #### 4.0.1 / 2020-01-31
