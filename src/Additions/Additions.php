@@ -67,35 +67,35 @@ class Additions {
 			$addition  = [];
 			$additions = [];
 
-			$type      = explode( '_', $repo['type'] )[1];
-			$file_path = 'plugin' === $type ? WP_PLUGIN_DIR . "/{$repo['slug']}" : null;
-			$file_path = 'theme' === $type ? get_theme_root() . "/{$repo['slug']}/style.css" : $file_path;
+			$repo_type = explode( '_', $repo['type'] )[1];
+			$file_path = 'plugin' === $repo_type ? WP_PLUGIN_DIR . "/{$repo['slug']}" : null;
+			$file_path = 'theme' === $repo_type ? get_theme_root() . "/{$repo['slug']}/style.css" : $file_path;
 
-			if ( ! file_exists( $file_path ) ) {
+			if ( ! file_exists( $file_path ) || $type !== $repo_type ) {
 				continue;
 			}
 
-			$all_headers = Singleton::get_instance( 'Base', $this )->get_headers( $type );
+			$all_headers = Singleton::get_instance( 'Base', $this )->get_headers( $repo_type );
 
-			$additions[ $repo['slug'] ]['type'] = $type;
+			$additions[ $repo['slug'] ]['type'] = $repo_type;
 			$additions[ $repo['slug'] ]         = get_file_data( $file_path, $all_headers );
 
 			switch ( $repo['type'] ) {
 				case 'github_plugin':
 				case 'github_theme':
-					$addition[ 'GitHub' . ucwords( $type ) . 'URI' ] = $repo['uri'];
+					$addition[ 'GitHub' . ucwords( $repo_type ) . 'URI' ] = $repo['uri'];
 					break;
 				case 'bitbucket_plugin':
 				case 'bitbucket_theme':
-					$addition[ 'Bitbucket' . ucwords( $type ) . 'URI' ] = $repo['uri'];
+					$addition[ 'Bitbucket' . ucwords( $repo_type ) . 'URI' ] = $repo['uri'];
 					break;
 				case 'gitlab_plugin':
 				case 'gitlab_theme':
-					$addition[ 'GitLab' . ucwords( $type ) . 'URI' ] = $repo['uri'];
+					$addition[ 'GitLab' . ucwords( $repo_type ) . 'URI' ] = $repo['uri'];
 					break;
 				case 'gitea_plugin':
 				case 'gitea_theme':
-					$addition[ 'Gitea' . ucwords( $type ) . 'URI' ] = $repo['uri'];
+					$addition[ 'Gitea' . ucwords( $repo_type ) . 'URI' ] = $repo['uri'];
 					break;
 			}
 
