@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 4.0.3 / 2020-03-13
+* only add appropriate repo type to GitHub Updater
+
 #### 4.0.2 / 2020-02-05
 * ensure GitHub Updater is running
 
