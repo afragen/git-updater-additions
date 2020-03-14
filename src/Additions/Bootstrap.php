@@ -57,7 +57,7 @@ class Bootstrap {
 	/**
 	 * Run the bootstrap.
 	 *
-	 * @return void
+	 * @return bool|void
 	 */
 	public function run() {
 		// Exit if GitHub Updater not running.
