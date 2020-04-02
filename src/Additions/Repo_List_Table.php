@@ -36,6 +36,11 @@ class Repo_List_Table extends \WP_List_Table {
 	 */
 	protected static $options = [];
 
+	/**
+	 * Holds examples.
+	 *
+	 * @var array
+	 */
 	protected static $examples = [];
 
 	/**
@@ -120,10 +125,15 @@ class Repo_List_Table extends \WP_List_Table {
 			 * @return string Text to be placed inside the column <td> (site title only)
 			 **************************************************************************/
 	public function column_slug( $item ) {
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended
+		// phpcs:disable WordPress.Security.ValidatedSanitizedInput
+		$page = isset( $_REQUEST['page'] ) ? sanitize_file_name( wp_slash( $_REQUEST['page'] ) ) : null;
+		$tab  = isset( $_REQUEST['tab'] ) ? sanitize_file_name( wp_slash( $_REQUEST['tab'] ) ) : null;
+		// phpcs:enable
 		$location = add_query_arg(
 			[
-				'page' => $_REQUEST['page'],
-				'tab'  => $_REQUEST['tab'],
+				'page' => $page,
+				'tab'  => $tab,
 			],
 			''
 		);
@@ -247,8 +257,10 @@ class Repo_List_Table extends \WP_List_Table {
 		// Detect when a bulk action is being triggered...
 		if ( 'delete' === $this->current_action() ) {
 			$this->check_nonce();
-			// phpcs:ignore WordPress.Security.NonceVerification
-			$slugs = isset( $_REQUEST['slug'] ) ? $_REQUEST['slug'] : null;
+			// phpcs:disable WordPress.Security.NonceVerification.Recommended
+			// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			$slugs = isset( $_REQUEST['slug'] ) ? wp_unslash( $_REQUEST['slug'] ) : null;
+			// phpcs:enable
 			$slugs = is_array( $slugs ) ? $slugs : (array) $slugs;
 			foreach ( $slugs as $slug ) {
 				foreach ( self::$options as $key => $option ) {
@@ -284,26 +296,26 @@ class Repo_List_Table extends \WP_List_Table {
 		if ( ! $nonce_exists ) {
 			wp_die( esc_html__( 'A nonce was not properly set. Please report an issue.', 'github-updater-additions' ) );
 		}
-		if ( ! wp_verify_nonce( $_REQUEST[ $nonce ], $action ) ) {
+		if ( ! wp_verify_nonce( sanitize_key( wp_unslash( $_REQUEST[ $nonce ] ) ), $action ) ) {
 			wp_die( esc_html__( 'Your nonce did not verify.', 'github-updater-additions' ) );
 		}
 	}
 
-			/** ************************************************************************
-			 * REQUIRED! This is where you prepare your data for display. This method will
-			 * usually be used to query the database, sort and filter the data, and generally
-			 * get it ready to be displayed. At a minimum, we should set $this->items and
-			 * $this->set_pagination_args(), although the following properties and methods
-			 * are frequently interacted with here...
-			 *
-			 * @global WPDB $wpdb
-			 * @uses $this->_column_headers
-			 * @uses $this->items
-			 * @uses $this->get_columns()
-			 * @uses $this->get_sortable_columns()
-			 * @uses $this->get_pagenum()
-			 * @uses $this->set_pagination_args()
-			 **************************************************************************/
+	/** ************************************************************************
+	 * REQUIRED! This is where you prepare your data for display. This method will
+	 * usually be used to query the database, sort and filter the data, and generally
+	 * get it ready to be displayed. At a minimum, we should set $this->items and
+	 * $this->set_pagination_args(), although the following properties and methods
+	 * are frequently interacted with here...
+	 *
+	 * @global WPDB $wpdb
+	 * @uses $this->_column_headers
+	 * @uses $this->items
+	 * @uses $this->get_columns()
+	 * @uses $this->get_sortable_columns()
+	 * @uses $this->get_pagenum()
+	 * @uses $this->set_pagination_args()
+	 **************************************************************************/
 	public function prepare_items() {
 		global $wpdb; // This is used only if making any database queries.
 
@@ -403,18 +415,25 @@ class Repo_List_Table extends \WP_List_Table {
 		);
 	}
 
-			/**
-			 * This checks for sorting input and sorts the data in our array accordingly.
-			 *
-			 * In a real-world situation involving a database, you would probably want
-			 * to handle sorting by passing the 'orderby' and 'order' values directly
-			 * to a custom query. The returned data will be pre-sorted, and this array
-			 * sorting technique would be unnecessary.
-			 */
+	/**
+	 * This checks for sorting input and sorts the data in our array accordingly.
+	 *
+	 * In a real-world situation involving a database, you would probably want
+	 * to handle sorting by passing the 'orderby' and 'order' values directly
+	 * to a custom query. The returned data will be pre-sorted, and this array
+	 * sorting technique would be unnecessary.
+	 *
+	 * @param array $a Array of table row data.
+	 * @param array $b Array of table row data.
+	 *
+	 * @return int Sort order, either 1 or -1.
+	 */
 	public function usort_reorder( $a, $b ) {
-		$orderby = ( ! empty( $_REQUEST['orderby'] ) ) ? $_REQUEST['orderby'] : 'slug'; // If no sort, default to site.
-		$order   = ( ! empty( $_REQUEST['order'] ) ) ? $_REQUEST['order'] : 'asc'; // If no order, default to asc.
-		$result  = strcmp( $a[ $orderby ], $b[ $orderby ] ); // Determine sort order.
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended
+		$orderby = ( ! empty( $_REQUEST['orderby'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['orderby'] ) ) : 'slug'; // If no sort, default to site.
+		$order   = ( ! empty( $_REQUEST['order'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['order'] ) ) : 'asc'; // If no order, default to asc.
+		// phpcs:enable
+		$result = strcmp( $a[ $orderby ], $b[ $orderby ] ); // Determine sort order.
 		return ( 'asc' === $order ) ? $result : -$result; // Send final sort direction to usort.
 	}
 
@@ -437,7 +456,9 @@ class Repo_List_Table extends \WP_List_Table {
 		wp_nonce_field( 'process-items', '_wpnonce_list' );
 
 		// For plugins, we also need to ensure that the form posts back to our current page.
-		echo '<input type="hidden" name="page" value="' . $_REQUEST['page'] . '" />';
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$current_page = isset( $_REQUEST['page'] ) ? sanitize_file_name( wp_unslash( $_REQUEST['page'] ) ) : null;
+		echo '<input type="hidden" name="page" value="' . esc_attr( $current_page ) . '" />';
 
 		// Now we can render the completed list table.
 		$this->display();

@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 4.0.4 / 2020-04-02
+* sanitize, escape & ignore
+
 #### 4.0.3 / 2020-03-13
 * only add appropriate repo type to GitHub Updater
 
