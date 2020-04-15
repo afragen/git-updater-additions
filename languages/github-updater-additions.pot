@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the GitHub Updater Additions plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: GitHub Updater Additions 4.0.3\n"
+"Project-Id-Version: GitHub Updater Additions 4.0.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/github-updater-additions\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-03-14T02:48:07+00:00\n"
+"POT-Creation-Date: 2020-04-15T16:10:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: github-updater-additions\n"
@@ -30,35 +30,35 @@ msgstr ""
 msgid "Andy Fragen"
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:185
+#: src/Additions/Repo_List_Table.php:195
 msgid "Slug"
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:186
+#: src/Additions/Repo_List_Table.php:196
 msgid "URL"
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:187
+#: src/Additions/Repo_List_Table.php:197
 msgid "Type"
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:233
+#: src/Additions/Repo_List_Table.php:243
 msgid "Delete"
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:263
+#: src/Additions/Repo_List_Table.php:274
 msgid "Items would go to edit when we write that code."
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:285
+#: src/Additions/Repo_List_Table.php:296
 msgid "A nonce was not properly set. Please report an issue."
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:288
+#: src/Additions/Repo_List_Table.php:299
 msgid "Your nonce did not verify."
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:433
+#: src/Additions/Repo_List_Table.php:451
 msgid "Additions List Table"
 msgstr ""
 

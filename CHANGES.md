@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 4.0.5 / 2020-04-15
 * more sanitize, less ignore
 
 #### 4.0.4 / 2020-04-02
