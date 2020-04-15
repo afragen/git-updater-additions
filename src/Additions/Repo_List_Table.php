@@ -258,8 +258,7 @@ class Repo_List_Table extends \WP_List_Table {
 		if ( 'delete' === $this->current_action() ) {
 			$this->check_nonce();
 			// phpcs:disable WordPress.Security.NonceVerification.Recommended
-			// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-			$slugs = isset( $_REQUEST['slug'] ) ? wp_unslash( $_REQUEST['slug'] ) : null;
+			$slugs = isset( $_REQUEST['slug'] ) ? sanitize_key( wp_unslash( $_REQUEST['slug'] ) ) : null;
 			// phpcs:enable
 			$slugs = is_array( $slugs ) ? $slugs : (array) $slugs;
 			foreach ( $slugs as $slug ) {
