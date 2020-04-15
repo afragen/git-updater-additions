@@ -1,4 +1,5 @@
 #### [unreleased]
+* more sanitize, less ignore
 
 #### 4.0.4 / 2020-04-02
 * sanitize, escape & ignore
