@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 4.0.6 / 2020-04-17
+* can't use `sanitize_key` on an array
+
 #### 4.0.5 / 2020-04-15
 * more sanitize, less ignore
 
