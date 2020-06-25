@@ -2,7 +2,7 @@
 
 * Contributors: afragen
 * Tags: plugin, theme, github-updater, extension
-* Requires at least: 4.6
+* Requires at least: 5.1
 * Requires PHP: 5.6
 * Tested up to: 5.4
 * Stable tag: master

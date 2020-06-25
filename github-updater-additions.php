@@ -20,7 +20,7 @@
  * Domain Path:       /languages
  * Text Domain:       github-updater-additions
  * GitHub Plugin URI: https://github.com/afragen/github-updater-additions
- * Requires at least: 4.6
+ * Requires at least: 5.1
  * Requires PHP:      5.6
  */
 
