@@ -1,15 +1,15 @@
-# Copyright (C) 2020 Andy Fragen
+# Copyright (C) 2021 Andy Fragen
 # This file is distributed under the same license as the GitHub Updater Additions plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: GitHub Updater Additions 4.0.5\n"
+"Project-Id-Version: GitHub Updater Additions 4.0.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/github-updater-additions\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-04-15T16:10:00+00:00\n"
+"POT-Creation-Date: 2021-02-17T17:54:26+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: github-updater-additions\n"
@@ -46,42 +46,42 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:274
+#: src/Additions/Repo_List_Table.php:273
 msgid "Items would go to edit when we write that code."
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:296
+#: src/Additions/Repo_List_Table.php:295
 msgid "A nonce was not properly set. Please report an issue."
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:299
+#: src/Additions/Repo_List_Table.php:298
 msgid "Your nonce did not verify."
 msgstr ""
 
-#: src/Additions/Repo_List_Table.php:451
+#: src/Additions/Repo_List_Table.php:450
 msgid "Additions List Table"
 msgstr ""
 
-#: src/Additions/Settings.php:126
+#: src/Additions/Settings.php:128
 msgid "Additions"
 msgstr ""
 
-#: src/Additions/Settings.php:188
+#: src/Additions/Settings.php:190
 msgid "Repository Type"
 msgstr ""
 
-#: src/Additions/Settings.php:200
+#: src/Additions/Settings.php:202
 msgid "Repository Slug"
 msgstr ""
 
-#: src/Additions/Settings.php:212
+#: src/Additions/Settings.php:214
 msgid "Repository URI"
 msgstr ""
 
-#: src/Additions/Settings.php:246
+#: src/Additions/Settings.php:248
 msgid "If there are git repositories that do not natively support GitHub Updater you can add them here."
 msgstr ""
 
-#: src/Additions/Settings.php:263
+#: src/Additions/Settings.php:265
 msgid "Ensure proper slug for plugin or theme."
 msgstr ""

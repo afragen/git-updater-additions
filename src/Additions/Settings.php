@@ -17,16 +17,12 @@ class Settings {
 	/**
 	 * Holds the values for additions settings.
 	 *
-	 * @deprecated 9.1.0
-	 *
 	 * @var array $option_remote
 	 */
 	public static $options_additions;
 
 	/**
 	 * Supported types.
-	 *
-	 * @deprecated 9.1.0
 	 *
 	 * @var array $addition_types
 	 */
@@ -89,6 +85,7 @@ class Settings {
 	public function save_settings( $post_data ) {
 		$options   = get_site_option( 'github_updater_additions', [] );
 		$duplicate = false;
+		$bad_input = false;
 		if ( isset( $post_data['option_page'] ) &&
 			'github_updater_additions' === $post_data['option_page']
 		) {
@@ -99,13 +96,18 @@ class Settings {
 			$new_options = $this->sanitize( $new_options );
 
 			foreach ( $options as $option ) {
-				$duplicate = in_array( $new_options[0]['ID'], $option, true );
-				if ( $duplicate ) {
+				$is_plugin_slug = preg_match( '@/@', $new_options[0]['slug'] );
+				$type_plugin    = \preg_match( '/plugin/', $new_options[0]['type'] );
+				$bad_input      = $type_plugin && ! $is_plugin_slug;
+				$bad_input      = ! $bad_input ? ! $type_plugin && $is_plugin_slug : $bad_input;
+				$duplicate      = in_array( $new_options[0]['ID'], $option, true );
+				if ( $duplicate || $bad_input ) {
+					$_POST['action'] = 'update-failed';
 					break;
 				}
 			}
 
-			if ( ! $duplicate ) {
+			if ( ! $duplicate && ! $bad_input ) {
 				$options = array_merge( $options, $new_options );
 				update_site_option( 'github_updater_additions', $options );
 			}
