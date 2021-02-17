@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-develop',
-    'version' => 'dev-develop',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => 'c8887846ebf8fed622c3781283fba6806fa3ffee',
+    'reference' => 'eebd75375f0f715996045345669824980faaf030',
     'name' => 'afragen/github-updater-additions',
   ),
   'versions' => 
   array (
     'afragen/github-updater-additions' => 
     array (
-      'pretty_version' => 'dev-develop',
-      'version' => 'dev-develop',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => 'c8887846ebf8fed622c3781283fba6806fa3ffee',
+      'reference' => 'eebd75375f0f715996045345669824980faaf030',
     ),
   ),
 );
