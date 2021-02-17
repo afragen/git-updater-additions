@@ -97,16 +97,16 @@ class Settings {
 
 			foreach ( $options as $option ) {
 				$is_plugin_slug = preg_match( '@/@', $new_options[0]['slug'] );
-				$bad_input      = 'plugin' === $new_options[0]['type'] && ! $is_plugin_slug;
-				$bad_input      = ! $bad_input ? 'theme' === $new_options[0]['type'] && $is_plugin_slug : $bad_input;
+				$type_plugin    = \preg_match( '/plugin/', $new_options[0]['type'] );
+				$bad_input      = $type_plugin && ! $is_plugin_slug;
+				$bad_input      = ! $bad_input ? ! $type_plugin && $is_plugin_slug : $bad_input;
 				$duplicate      = in_array( $new_options[0]['ID'], $option, true );
 				if ( $duplicate || $bad_input ) {
-					$post_data['action'] = 'update-failed';
 					break;
 				}
 			}
 
-			if ( ! $duplicate || ! $bad_input ) {
+			if ( ! $duplicate && ! $bad_input ) {
 				$options = array_merge( $options, $new_options );
 				update_site_option( 'github_updater_additions', $options );
 			}
