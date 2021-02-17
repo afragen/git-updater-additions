@@ -1,4 +1,5 @@
 #### [unreleased]
+* data validation on saving
 
 #### 4.0.6 / 2020-04-17
 * can't use `sanitize_key` on an array
