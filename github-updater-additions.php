@@ -26,8 +26,6 @@
 
 namespace Fragen\GitHub_Updater\Additions;
 
-use Fragen\Singleton;
-
 /*
  * Exit if called directly.
  * PHP version check and exit.
