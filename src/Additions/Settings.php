@@ -100,9 +100,10 @@ class Settings {
 				$type_plugin    = \preg_match( '/plugin/', $new_options[0]['type'] );
 				$bad_input      = $type_plugin && ! $is_plugin_slug;
 				$bad_input      = ! $bad_input ? ! $type_plugin && $is_plugin_slug : $bad_input;
+				$bad_input      = $bad_input || empty( $new_options[0]['slug'] ) || empty( $new_options[0]['uri'] );
 				$duplicate      = in_array( $new_options[0]['ID'], $option, true );
 				if ( $duplicate || $bad_input ) {
-					$_POST['action'] = 'update-failed';
+					$_POST['action'] = false;
 					break;
 				}
 			}
