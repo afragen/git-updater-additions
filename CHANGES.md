@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 4.1.0 / 2021-03-07
 * move action hook to main plugin file
 
 #### 4.0.9 / 2021-02-18
