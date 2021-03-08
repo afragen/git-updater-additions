@@ -1,4 +1,5 @@
 #### [unreleased]
+* move action hook to main plugin file
 
 #### 4.0.9 / 2021-02-18
 * data validation for empty data on save
