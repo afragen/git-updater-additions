@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 4.1.1 / 2021-03-12
+* fix dropdown
+
 #### 4.1.0 / 2021-03-07
 * move action hook to main plugin file
 
