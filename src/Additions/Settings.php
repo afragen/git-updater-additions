@@ -283,8 +283,13 @@ class Settings {
 		<select id="<?php esc_attr_e( $args['id'] ); ?>" name="github_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]">
 		<?php
 		foreach ( self::$addition_types as $item ) {
-			$selected = ( 'github_plugin' === $item ) ? 'selected="selected"' : '';
-			echo '<option value="' . esc_attr( $item ) . '" $selected>' . esc_attr( $item ) . '</option>';
+			printf(
+				'<option value="%s" %s>%s</option>',
+				esc_attr( $item ),
+				selected( 'plugin', $item, false ),
+				esc_html( $item )
+			);
+
 		}
 		?>
 		</select>
