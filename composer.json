@@ -1,6 +1,6 @@
 {
   "name": "afragen/github-updater-additions",
-  "description": "Add repositories to GitHub Updater that lack actual GitHub Updater headers.",
+  "description": "Add repositories to Git Updater that lack actual Git Updater headers.",
   "type": "wordpress-plugin",
   "license": "MIT",
   "authors": [
@@ -21,12 +21,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Fragen\\GitHub_Updater\\Additions\\": "src/Additions/"
+      "Fragen\\Git_Updater\\Additions\\": "src/Additions/"
     }
   },
   "scripts": {
     "post-update-cmd": [
-      "wp i18n make-pot . languages/github-updater-additions.pot"
+      "wp i18n make-pot . languages/git-updater-additions.pot"
     ]
   }
 }

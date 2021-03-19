@@ -1,19 +1,19 @@
 <?php
 /**
- * GitHub Updater Additions.
- * Requires GitHub Updater plugin.
+ * Git Updater Additions.
+ * Requires Git Updater plugin.
  *
- * @package github-updater-additions
+ * @package git-updater-additions
  * @author  Andy Fragen
- * @link    https://github.com/afragen/github-updater-additions
+ * @link    https://github.com/afragen/git-updater-additions
  * @link    https://github.com/afragen/github-updater
  */
 
 /**
- * Plugin Name:       GitHub Updater Additions
- * Plugin URI:        https://github.com/afragen/github-updater-additions
- * Description:       Add installed repositories lacking required headers to the GitHub Updater plugin.
- * Version:           4.1.1
+ * Plugin Name:       Git Updater Additions
+ * Plugin URI:        https://github.com/afragen/git-updater-additions
+ * Description:       Add installed repositories lacking required headers to the Git Updater plugin.
+ * Version:           4.1.1.1
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -24,7 +24,7 @@
  * Requires PHP:      5.6
  */
 
-namespace Fragen\GitHub_Updater\Additions;
+namespace Fragen\Git_Updater\Additions;
 
 /*
  * Exit if called directly.

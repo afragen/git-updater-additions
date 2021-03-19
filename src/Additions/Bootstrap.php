@@ -8,7 +8,7 @@
  * @package   github-updater-additions
  */
 
-namespace Fragen\GitHub_Updater\Additions;
+namespace Fragen\Git_Updater\Additions;
 
 /*
  * Exit if called directly.
@@ -60,8 +60,8 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function run() {
-		// Exit if GitHub Updater not running.
-		if ( ! class_exists( '\\Fragen\\GitHub_Updater\\Bootstrap' ) ) {
+		// Bail if Git Updater not active.
+		if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' ) ) {
 			return false;
 		}
 

@@ -8,7 +8,7 @@
  * @package   github-updater-additions
  */
 
-namespace Fragen\GitHub_Updater\Additions;
+namespace Fragen\Git_Updater\Additions;
 
 /**
  * Class Settings
@@ -87,10 +87,10 @@ class Settings {
 		$duplicate = false;
 		$bad_input = false;
 		if ( isset( $post_data['option_page'] ) &&
-			'github_updater_additions' === $post_data['option_page']
+			'git_updater_additions' === $post_data['option_page']
 		) {
-			$new_options = isset( $post_data['github_updater_additions'] )
-				? $post_data['github_updater_additions']
+			$new_options = isset( $post_data['git_updater_additions'] )
+				? $post_data['git_updater_additions']
 				: [];
 
 			$new_options = $this->sanitize( $new_options );
@@ -116,7 +116,7 @@ class Settings {
 			add_filter(
 				'github_updater_save_redirect',
 				function ( $option_page ) {
-					return array_merge( $option_page, [ 'github_updater_additions' ] );
+					return array_merge( $option_page, [ 'git_updater_additions' ] );
 				}
 			);
 		}
@@ -126,7 +126,7 @@ class Settings {
 	 * Adds Additions tab to Settings page.
 	 */
 	public function add_settings_tabs() {
-		$install_tabs = [ 'github_updater_additions' => esc_html__( 'Additions', 'github-updater-additions' ) ];
+		$install_tabs = [ 'git_updater_additions' => esc_html__( 'Additions', 'github-updater-additions' ) ];
 		add_filter(
 			'github_updater_add_settings_tabs',
 			function ( $tabs ) use ( $install_tabs ) {
@@ -148,10 +148,10 @@ class Settings {
 	public function add_admin_page( $tab, $action ) {
 		$this->additions_page_init();
 
-		if ( 'github_updater_additions' === $tab ) {
+		if ( 'git_updater_additions' === $tab ) {
 			$action = add_query_arg(
 				[
-					'page' => 'github-updater',
+					'page' => 'git-updater',
 					'tab'  => $tab,
 				],
 				$action
@@ -160,8 +160,8 @@ class Settings {
 			?>
 			<form class="settings" method="post" action="<?php esc_attr_e( $action ); ?>">
 				<?php
-				settings_fields( 'github_updater_additions' );
-				do_settings_sections( 'github_updater_additions' );
+				settings_fields( 'git_updater_additions' );
+				do_settings_sections( 'git_updater_additions' );
 				submit_button();
 				?>
 			</form>
@@ -174,26 +174,26 @@ class Settings {
 	 */
 	public function additions_page_init() {
 		register_setting(
-			'github_updater_additions',
-			'github_updater_additions',
+			'git_updater_additions',
+			'git_updater_additions',
 			null
 		);
 
 		add_settings_section(
-			'github_updater_additions',
+			'git_updater_additions',
 			esc_html__( 'Additions', 'github-updater' ),
 			[ $this, 'print_section_additions' ],
-			'github_updater_additions'
+			'git_updater_additions'
 		);
 
 		add_settings_field(
 			'type',
 			esc_html__( 'Repository Type', 'github-updater-additions' ),
 			[ $this, 'callback_dropdown' ],
-			'github_updater_additions',
-			'github_updater_additions',
+			'git_updater_additions',
+			'git_updater_additions',
 			[
-				'id'      => 'github_updater_additions_type',
+				'id'      => 'git_updater_additions_type',
 				'setting' => 'type',
 			]
 		);
@@ -202,10 +202,10 @@ class Settings {
 			'slug',
 			esc_html__( 'Repository Slug', 'github-updater-additions' ),
 			[ $this, 'callback_field' ],
-			'github_updater_additions',
-			'github_updater_additions',
+			'git_updater_additions',
+			'git_updater_additions',
 			[
-				'id'      => 'github_updater_additions_slug',
+				'id'      => 'git_updater_additions_slug',
 				'setting' => 'slug',
 			]
 		);
@@ -214,10 +214,10 @@ class Settings {
 			'uri',
 			esc_html__( 'Repository URI', 'github-updater-additions' ),
 			[ $this, 'callback_field' ],
-			'github_updater_additions',
-			'github_updater_additions',
+			'git_updater_additions',
+			'git_updater_additions',
 			[
-				'id'      => 'github_updater_additions_uri',
+				'id'      => 'git_updater_additions_uri',
 				'setting' => 'uri',
 			]
 		);
@@ -260,7 +260,7 @@ class Settings {
 	public function callback_field( $args ) {
 		?>
 		<label for="<?php esc_attr_e( $args['id'] ); ?>">
-			<input type="text" style="width:50%;" id="<?php esc_attr( $args['id'] ); ?>" name="github_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]" value="">
+			<input type="text" style="width:50%;" id="<?php esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]" value="">
 			<br>
 			<span class="description">
 				<?php esc_html_e( 'Ensure proper slug for plugin or theme.', 'github-updater-additions' ); ?>
@@ -280,7 +280,7 @@ class Settings {
 		$options['type'] = [ 'github_plugin' ];
 		?>
 		<label for="<?php esc_attr_e( $args['id'] ); ?>">
-		<select id="<?php esc_attr_e( $args['id'] ); ?>" name="github_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]">
+		<select id="<?php esc_attr_e( $args['id'] ); ?>" name="git_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]">
 		<?php
 		foreach ( self::$addition_types as $item ) {
 			printf(

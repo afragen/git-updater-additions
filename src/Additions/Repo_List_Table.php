@@ -10,7 +10,7 @@
  *          Copyright 2015, GPL2
  */
 
-namespace Fragen\GitHub_Updater\Additions;
+namespace Fragen\Git_Updater\Additions;
 
 /*
  * Exit if called directly.

@@ -8,7 +8,7 @@
  * @package   github-updater-additions
  */
 
-namespace Fragen\GitHub_Updater\Additions;
+namespace Fragen\Git_Updater\Additions;
 
 use Fragen\Singleton;
 
@@ -45,6 +45,11 @@ class Additions {
 			return false;
 		}
 
+		// Bail if Git Updater not active.
+		if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' ) ) {
+			return false;
+		}
+
 		$this->add_headers( $config, $repos, $type );
 
 		return true;
@@ -54,7 +59,7 @@ class Additions {
 	 * Add GitHub Updater headers to plugins/themes via a filter hooks.
 	 *
 	 * @access public
-	 * @uses   \Fragen\GitHub_Updater\Additions::add_to_github_updater()
+	 * @uses   \Fragen\Git_Updater\Additions::add_to_github_updater()
 	 *
 	 * @param array  $config The repo config.
 	 * @param array  $repos  The repos to pull from.
