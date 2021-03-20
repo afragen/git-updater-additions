@@ -57,7 +57,7 @@ class Settings {
 	 */
 	public function load_hooks() {
 		add_action(
-			'github_updater_update_settings',
+			'gu_update_settings',
 			function ( $post_data ) {
 				$this->save_settings( $post_data );
 			}
@@ -65,7 +65,7 @@ class Settings {
 		$this->add_settings_tabs();
 
 		add_filter(
-			'github_updater_add_admin_page',
+			'gu_add_admin_page',
 			function ( $tab, $action ) {
 				$this->add_admin_page( $tab, $action );
 			},
@@ -77,8 +77,8 @@ class Settings {
 	/**
 	 * Save Additions settings.
 	 *
-	 * @uses 'github_updater_update_settings' action hook
-	 * @uses 'github_updater_save_redirect' filter hook
+	 * @uses 'gu_update_settings' action hook
+	 * @uses 'gu_save_redirect' filter hook
 	 *
 	 * @param array $post_data $_POST data.
 	 */
@@ -114,7 +114,7 @@ class Settings {
 			}
 
 			add_filter(
-				'github_updater_save_redirect',
+				'gu_save_redirect',
 				function ( $option_page ) {
 					return array_merge( $option_page, [ 'git_updater_additions' ] );
 				}
@@ -128,7 +128,7 @@ class Settings {
 	public function add_settings_tabs() {
 		$install_tabs = [ 'git_updater_additions' => esc_html__( 'Additions', 'github-updater-additions' ) ];
 		add_filter(
-			'github_updater_add_settings_tabs',
+			'gu_add_settings_tabs',
 			function ( $tabs ) use ( $install_tabs ) {
 				return array_merge( $tabs, $install_tabs );
 			},
@@ -140,7 +140,7 @@ class Settings {
 	/**
 	 * Add Settings page data via action hook.
 	 *
-	 * @uses 'github_updater_add_admin_page' action hook
+	 * @uses 'gu_add_admin_page' action hook
 	 *
 	 * @param string $tab    Tab name.
 	 * @param string $action Form action.

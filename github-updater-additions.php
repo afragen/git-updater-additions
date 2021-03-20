@@ -45,7 +45,7 @@ add_action(
 );
 
 add_filter(
-	'github_updater_additions',
+	'gu_additions',
 	function( $false, $repos, $type ) {
 		$config    = get_site_option( 'github_updater_additions', [] );
 		$additions = new Additions();
