@@ -1,14 +1,14 @@
 <?php
 /**
- * GitHub Updater Additions
+ * Git Updater Additions
  *
  * @author    Andy Fragen
  * @license   MIT
- * @link      https://github.com/afragen/github-updater-additions
- * @package   github-updater-additions
+ * @link      https://github.com/afragen/git-updater-additions
+ * @package   git-updater-additions
  */
 
-namespace Fragen\GitHub_Updater\Additions;
+namespace Fragen\Git_Updater\Additions;
 
 /*
  * Exit if called directly.
@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 add_action(
 	'init',
 	function () {
-		load_plugin_textdomain( 'github-updater-additions' );
+		load_plugin_textdomain( 'git-updater-additions' );
 	}
 );
 
@@ -60,8 +60,8 @@ class Bootstrap {
 	 * @return bool|void
 	 */
 	public function run() {
-		// Exit if GitHub Updater not running.
-		if ( ! class_exists( '\\Fragen\\GitHub_Updater\\Bootstrap' ) ) {
+		// Bail if Git Updater not active.
+		if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' ) ) {
 			return false;
 		}
 

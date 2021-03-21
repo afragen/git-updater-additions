@@ -1,58 +1,9 @@
 <?php
 /**
- * GitHub Updater Additions.
- * Requires GitHub Updater plugin.
- *
- * @package github-updater-additions
- * @author  Andy Fragen
- * @link    https://github.com/afragen/github-updater-additions
- * @link    https://github.com/afragen/github-updater
+ * Git Updater Additions.
+ * This file added to ease transitioning from `github-updater-additions` to `git-updater-additions`.
  */
 
 /**
- * Plugin Name:       GitHub Updater Additions
- * Plugin URI:        https://github.com/afragen/github-updater-additions
- * Description:       Add installed repositories lacking required headers to the GitHub Updater plugin.
- * Version:           4.1.1
- * Author:            Andy Fragen
- * License:           MIT
- * Network:           true
- * Domain Path:       /languages
- * Text Domain:       github-updater-additions
- * GitHub Plugin URI: https://github.com/afragen/github-updater-additions
- * Requires at least: 5.1
- * Requires PHP:      5.6
+ * Version: 4.1.1
  */
-
-namespace Fragen\GitHub_Updater\Additions;
-
-/*
- * Exit if called directly.
- * PHP version check and exit.
- */
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
-
-// Load Autoloader.
-require_once __DIR__ . '/vendor/autoload.php';
-
-add_action(
-	'plugins_loaded',
-	function() {
-		( new Bootstrap( __FILE__ ) )->run();
-	}
-);
-
-add_filter(
-	'github_updater_additions',
-	function( $false, $repos, $type ) {
-		$config    = get_site_option( 'github_updater_additions', [] );
-		$additions = new Additions();
-		$additions->register( $config, $repos, $type );
-
-		return $additions->add_to_github_updater;
-	},
-	10,
-	3
-);

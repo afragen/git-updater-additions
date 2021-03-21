@@ -1,4 +1,7 @@
 #### [unreleased]
+* rebrand as Git Updater Additions
+* update namespace
+* gracefully exit if Git(GitHub) Updater not running.
 
 #### 4.1.1 / 2021-03-12
 * fix dropdown

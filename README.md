@@ -1,21 +1,21 @@
-# GitHub Updater Additions
-* Contributors: [Andy Fragen](https://github.com/afragen), [contributors](https://github.com/afragen/github-updater-additions/graphs/contributors)
+# Git Updater Additions
+* Contributors: [Andy Fragen](https://github.com/afragen), [contributors](https://github.com/afragen/git-updater-additions/graphs/contributors)
 * Tags: plugin, theme, github-updater, extension
-* Requires at least: 5.1
+* Requires at least: 5.2
 * Requires PHP: 5.6
 * Stable tag: master
 * Donate link: http://thefragens.com/github-updater-donate
 * License: MIT
 
-A plugin that allows for adding installed plugins or themes hosted on GitHub, Bitbucket, GitLab, or Gitea that do not contain required headers to GitHub Updater.
+A plugin that allows for adding installed plugins or themes hosted on GitHub, Bitbucket, GitLab, or Gitea that do not contain required headers to Git Updater.
 
 ## Description
 
-This is a plugin that will add the appropriate data via hooks in GitHub Updater so that repositories that are not correctly configured to use GitHub Updater may be added to GitHub Updater without modifying the repository. This only works for installed plugins/themes.
+This is a plugin that will add the appropriate data via hooks in Git Updater so that repositories that are not correctly configured to use Git Updater may be added to Git Updater without modifying the repository. This only works for installed plugins/themes.
 
-This plugin adds an **Additions** tab inside the GitHub Updater Settings for updating settings to this plugin.
+This plugin adds an **Additions** tab inside the Git Updater Settings for updating settings to this plugin.
 
-![GitHub Updater Additions Settings Tab](./assets/screenshot-1.png)
+![Git Updater Additions Settings Tab](./assets/screenshot-1.png)
 
 ## Usage
 

@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Fragen\\GitHub_Updater\\Additions\\' => array($baseDir . '/src/Additions'),
+    'Fragen\\Git_Updater\\Additions\\' => array($baseDir . '/src/Additions'),
 );
