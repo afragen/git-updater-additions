@@ -45,6 +45,8 @@ class Repo_List_Table extends \WP_List_Table {
 
 	/**
 	 * Constructor.
+	 *
+	 * @param array $options Array of saved options.
 	 */
 	public function __construct( $options ) {
 		global $status, $page;
@@ -74,30 +76,29 @@ class Repo_List_Table extends \WP_List_Table {
 				'ajax'     => false,        // does this table support ajax?
 			]
 		);
-
 	}
 
-			/** ************************************************************************
-			 * Recommended. This method is called when the parent class can't find a method
-			 * specifically build for a given column. Generally, it's recommended to include
-			 * one method for each column you want to render, keeping your package class
-			 * neat and organized. For example, if the class needs to process a column
-			 * named 'title', it would first see if a method named $this->column_title()
-			 * exists - if it does, that method will be used. If it doesn't, this one will
-			 * be used. Generally, you should try to use custom column methods as much as
-			 * possible.
-			 *
-			 * Since we have defined a column_title() method later on, this method doesn't
-			 * need to concern itself with any column with a name of 'title'. Instead, it
-			 * needs to handle everything else.
-			 *
-			 * For more detailed insight into how columns are handled, take a look at
-			 * WP_List_Table::single_row_columns()
-			 *
-			 * @param  array $item        A singular item (one full row's worth of data).
-			 * @param  array $column_name The name/slug of the column to be processed.
-			 * @return string Text or HTML to be placed inside the column <td>
-			 **************************************************************************/
+	/** ************************************************************************
+	 * Recommended. This method is called when the parent class can't find a method
+	 * specifically build for a given column. Generally, it's recommended to include
+	 * one method for each column you want to render, keeping your package class
+	 * neat and organized. For example, if the class needs to process a column
+	 * named 'title', it would first see if a method named $this->column_title()
+	 * exists - if it does, that method will be used. If it doesn't, this one will
+	 * be used. Generally, you should try to use custom column methods as much as
+	 * possible.
+	 *
+	 * Since we have defined a column_title() method later on, this method doesn't
+	 * need to concern itself with any column with a name of 'title'. Instead, it
+	 * needs to handle everything else.
+	 *
+	 * For more detailed insight into how columns are handled, take a look at
+	 * WP_List_Table::single_row_columns()
+	 *
+	 * @param  array $item        A singular item (one full row's worth of data).
+	 * @param  array $column_name The name/slug of the column to be processed.
+	 * @return string Text or HTML to be placed inside the column <td>
+	 **************************************************************************/
 	public function column_default( $item, $column_name ) {
 		switch ( $column_name ) {
 			case 'uri':
@@ -109,21 +110,21 @@ class Repo_List_Table extends \WP_List_Table {
 		}
 	}
 
-			/** ************************************************************************
-			 * Recommended. This is a custom column method and is responsible for what
-			 * is rendered in any column with a name/slug of 'site'. Every time the class
-			 * needs to render a column, it first looks for a method named
-			 * column_{$column_title} - if it exists, that method is run. If it doesn't
-			 * exist, column_default() is called instead.
-			 *
-			 * This example also illustrates how to implement rollover actions. Actions
-			 * should be an associative array formatted as 'slug'=>'link html' - and you
-			 * will need to generate the URLs yourself. You could even ensure the links
-			 *
-			 * @see WP_List_Table::::single_row_columns()
-			 * @param  array $item A singular item (one full row's worth of data).
-			 * @return string Text to be placed inside the column <td> (site title only)
-			 **************************************************************************/
+	/** ************************************************************************
+	 * Recommended. This is a custom column method and is responsible for what
+	 * is rendered in any column with a name/slug of 'site'. Every time the class
+	 * needs to render a column, it first looks for a method named
+	 * column_{$column_title} - if it exists, that method is run. If it doesn't
+	 * exist, column_default() is called instead.
+	 *
+	 * This example also illustrates how to implement rollover actions. Actions
+	 * should be an associative array formatted as 'slug'=>'link html' - and you
+	 * will need to generate the URLs yourself. You could even ensure the links
+	 *
+	 * @see WP_List_Table::::single_row_columns()
+	 * @param  array $item A singular item (one full row's worth of data).
+	 * @return string Text to be placed inside the column <td> (site title only)
+	 **************************************************************************/
 	public function column_slug( $item ) {
 		// phpcs:disable WordPress.Security.NonceVerification.Recommended
 		// phpcs:disable WordPress.Security.ValidatedSanitizedInput
@@ -157,15 +158,15 @@ class Repo_List_Table extends \WP_List_Table {
 		);
 	}
 
-			/** ************************************************************************
-			 * REQUIRED if displaying checkboxes or using bulk actions! The 'cb' column
-			 * is given special treatment when columns are processed. It ALWAYS needs to
-			 * have it's own method.
-			 *
-			 * @see WP_List_Table::::single_row_columns()
-			 * @param  array $item A singular item (one full row's worth of data).
-			 * @return string Text to be placed inside the column <td> (movie title only)
-			 **************************************************************************/
+	/** ************************************************************************
+	 * REQUIRED if displaying checkboxes or using bulk actions! The 'cb' column
+	 * is given special treatment when columns are processed. It ALWAYS needs to
+	 * have it's own method.
+	 *
+	 * @see WP_List_Table::::single_row_columns()
+	 * @param  array $item A singular item (one full row's worth of data).
+	 * @return string Text to be placed inside the column <td> (movie title only)
+	 **************************************************************************/
 	public function column_cb( $item ) {
 		return sprintf(
 			'<input type="checkbox" name="%1$s[]" value="%2$s" />',
@@ -176,19 +177,19 @@ class Repo_List_Table extends \WP_List_Table {
 		);
 	}
 
-			/** ************************************************************************
-			 * REQUIRED! This method dictates the table's columns and titles. This should
-			 * return an array where the key is the column slug (and class) and the value
-			 * is the column's title text. If you need a checkbox for bulk actions, refer
-			 * to the $columns array below.
-			 *
-			 * The 'cb' column is treated differently than the rest. If including a checkbox
-			 * column in your table you must create a column_cb() method. If you don't need
-			 * bulk actions or checkboxes, simply leave the 'cb' entry out of your array.
-			 *
-			 * @see WP_List_Table::::single_row_columns()
-			 * @return array An associative array containing column information: 'slugs'=>'Visible Titles'
-			 **************************************************************************/
+	/** ************************************************************************
+	 * REQUIRED! This method dictates the table's columns and titles. This should
+	 * return an array where the key is the column slug (and class) and the value
+	 * is the column's title text. If you need a checkbox for bulk actions, refer
+	 * to the $columns array below.
+	 *
+	 * The 'cb' column is treated differently than the rest. If including a checkbox
+	 * column in your table you must create a column_cb() method. If you don't need
+	 * bulk actions or checkboxes, simply leave the 'cb' entry out of your array.
+	 *
+	 * @see WP_List_Table::::single_row_columns()
+	 * @return array An associative array containing column information: 'slugs'=>'Visible Titles'
+	 **************************************************************************/
 	public function get_columns() {
 		$columns = [
 			'cb'   => '<input type="checkbox" />', // Render a checkbox instead of text.
@@ -200,20 +201,20 @@ class Repo_List_Table extends \WP_List_Table {
 		return $columns;
 	}
 
-			/** ************************************************************************
-			 * Optional. If you want one or more columns to be sortable (ASC/DESC toggle),
-			 * you will need to register it here. This should return an array where the
-			 * key is the column that needs to be sortable, and the value is db column to
-			 * sort by. Often, the key and value will be the same, but this is not always
-			 * the case (as the value is a column name from the database, not the list table).
-			 *
-			 * This method merely defines which columns should be sortable and makes them
-			 * clickable - it does not handle the actual sorting. You still need to detect
-			 * the ORDERBY and ORDER querystring variables within prepare_items() and sort
-			 * your data accordingly (usually by modifying your query).
-			 *
-			 * @return array An associative array containing all the columns that should be sortable: 'slugs'=>array('data_values',bool)
-			 **************************************************************************/
+	/** ************************************************************************
+	 * Optional. If you want one or more columns to be sortable (ASC/DESC toggle),
+	 * you will need to register it here. This should return an array where the
+	 * key is the column that needs to be sortable, and the value is db column to
+	 * sort by. Often, the key and value will be the same, but this is not always
+	 * the case (as the value is a column name from the database, not the list table).
+	 *
+	 * This method merely defines which columns should be sortable and makes them
+	 * clickable - it does not handle the actual sorting. You still need to detect
+	 * the ORDERBY and ORDER querystring variables within prepare_items() and sort
+	 * your data accordingly (usually by modifying your query).
+	 *
+	 * @return array An associative array containing all the columns that should be sortable: 'slugs'=>array('data_values',bool)
+	 **************************************************************************/
 	public function get_sortable_columns() {
 		$sortable_columns = [
 			'slug' => [ 'slug', true ],     // true means it's already sorted.
@@ -224,20 +225,20 @@ class Repo_List_Table extends \WP_List_Table {
 		return $sortable_columns;
 	}
 
-			/** ************************************************************************
-			 * Optional. If you need to include bulk actions in your list table, this is
-			 * the place to define them. Bulk actions are an associative array in the format
-			 * 'slug'=>'Visible Title'
-			 *
-			 * If this method returns an empty value, no bulk action will be rendered. If
-			 * you specify any bulk actions, the bulk actions box will be rendered with
-			 * the table automatically on display().
-			 *
-			 * Also note that list tables are not automatically wrapped in <form> elements,
-			 * so you will need to create those manually in order for bulk actions to function.
-			 *
-			 * @return array An associative array containing all the bulk actions: 'slugs'=>'Visible Titles'
-			 **************************************************************************/
+	/** ************************************************************************
+	 * Optional. If you need to include bulk actions in your list table, this is
+	 * the place to define them. Bulk actions are an associative array in the format
+	 * 'slug'=>'Visible Title'
+	 *
+	 * If this method returns an empty value, no bulk action will be rendered. If
+	 * you specify any bulk actions, the bulk actions box will be rendered with
+	 * the table automatically on display().
+	 *
+	 * Also note that list tables are not automatically wrapped in <form> elements,
+	 * so you will need to create those manually in order for bulk actions to function.
+	 *
+	 * @return array An associative array containing all the bulk actions: 'slugs'=>'Visible Titles'
+	 **************************************************************************/
 	public function get_bulk_actions() {
 		$actions = [
 			'delete' => esc_html__( 'Delete', 'git-updater-additions' ),
@@ -246,13 +247,13 @@ class Repo_List_Table extends \WP_List_Table {
 		// return $actions;
 	}
 
-			/** ************************************************************************
-			 * Optional. You can handle your bulk actions anywhere or anyhow you prefer.
-			 * For this example package, we will handle it in the class to keep things
-			 * clean and organized.
-			 *
-			 * @see $this->prepare_items()
-			 **************************************************************************/
+	/** ************************************************************************
+	 * Optional. You can handle your bulk actions anywhere or anyhow you prefer.
+	 * For this example package, we will handle it in the class to keep things
+	 * clean and organized.
+	 *
+	 * @see $this->prepare_items()
+	 **************************************************************************/
 	public function process_bulk_action() {
 		// Detect when a bulk action is being triggered...
 		if ( 'delete' === $this->current_action() ) {
@@ -274,11 +275,11 @@ class Repo_List_Table extends \WP_List_Table {
 		}
 	}
 
-			/**
-			 * Check nonces.
-			 *
-			 * @return void
-			 */
+	/**
+	 * Check nonces.
+	 *
+	 * @return void
+	 */
 	private function check_nonce() {
 		$nonce_exists = false;
 		$nonces       = [
@@ -432,18 +433,18 @@ class Repo_List_Table extends \WP_List_Table {
 		$order   = ( ! empty( $_REQUEST['order'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['order'] ) ) : 'asc'; // If no order, default to asc.
 		// phpcs:enable
 		$result = strcmp( $a[ $orderby ], $b[ $orderby ] ); // Determine sort order.
+
 		return ( 'asc' === $order ) ? $result : -$result; // Send final sort direction to usort.
 	}
 
-			/**
-			 * Render list table.
-			 *
-			 * Explicitly calls prepare_items() and display().
-			 *
-			 * @return void
-			 */
+	/**
+	 * Render list table.
+	 *
+	 * Explicitly calls prepare_items() and display().
+	 *
+	 * @return void
+	 */
 	public function render_list_table() {
-
 		// Fetch, prepare, sort, and filter our data...
 		$this->prepare_items();
 		echo '<div class="wrap">';
