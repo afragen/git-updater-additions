@@ -51,7 +51,7 @@ add_filter(
 		$additions = new Additions();
 		$additions->register( $config, $repos, $type );
 
-		return $additions->add_to_github_updater;
+		return $additions->add_to_git_updater;
 	},
 	10,
 	3

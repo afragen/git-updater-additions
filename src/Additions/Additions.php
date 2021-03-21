@@ -27,7 +27,7 @@ class Additions {
 	 * @access public
 	 * @var array
 	 */
-	public $add_to_github_updater;
+	public $add_to_git_updater;
 
 	/**
 	 * Register JSON config file.
@@ -59,7 +59,7 @@ class Additions {
 	 * Add Git Updater headers to plugins/themes via a filter hooks.
 	 *
 	 * @access public
-	 * @uses   \Fragen\Git_Updater\Additions::add_to_github_updater()
+	 * @uses   \Fragen\Git_Updater\Additions::add_to_git_updater()
 	 *
 	 * @param array  $config The repo config.
 	 * @param array  $repos  The repos to pull from.
@@ -104,7 +104,7 @@ class Additions {
 					break;
 			}
 
-			$this->add_to_github_updater[ $repo['slug'] ] = array_merge( $additions[ $repo['slug'] ], $addition );
+			$this->add_to_git_updater[ $repo['slug'] ] = array_merge( $additions[ $repo['slug'] ], $addition );
 		}
 	}
 }
