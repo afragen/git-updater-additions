@@ -6,7 +6,7 @@
  * @package git-updater-additions
  * @author  Andy Fragen
  * @link    https://github.com/afragen/git-updater-additions
- * @link    https://github.com/afragen/github-updater
+ * @link    https://github.com/afragen/git-updater
  */
 
 /**
