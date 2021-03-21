@@ -46,7 +46,7 @@ class Repo_List_Table extends \WP_List_Table {
 	/**
 	 * Constructor.
 	 */
-	public function __construct() {
+	public function __construct( $options ) {
 		global $status, $page;
 
 		$examples = [
@@ -64,7 +64,7 @@ class Repo_List_Table extends \WP_List_Table {
 			],
 		];
 		// self::$examples = $examples;
-		self::$options = get_site_option( 'git_updater_additions', [] );
+		self::$options = $options;
 
 		// Set parent defaults.
 		parent::__construct(

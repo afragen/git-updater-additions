@@ -156,7 +156,7 @@ class Settings {
 				],
 				$action
 			);
-			( new Repo_List_Table() )->render_list_table();
+			( new Repo_List_Table( self::$options_additions ) )->render_list_table();
 			?>
 			<form class="settings" method="post" action="<?php esc_attr_e( $action ); ?>">
 				<?php
