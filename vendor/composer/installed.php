@@ -6,19 +6,19 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'c8887846ebf8fed622c3781283fba6806fa3ffee',
-    'name' => 'afragen/github-updater-additions',
+    'reference' => '9e20b24a8e8d5381f4f121923931cff3d9d3550b',
+    'name' => 'afragen/git-updater-additions',
   ),
   'versions' => 
   array (
-    'afragen/github-updater-additions' => 
+    'afragen/git-updater-additions' => 
     array (
       'pretty_version' => 'dev-develop',
       'version' => 'dev-develop',
       'aliases' => 
       array (
       ),
-      'reference' => 'c8887846ebf8fed622c3781283fba6806fa3ffee',
+      'reference' => '9e20b24a8e8d5381f4f121923931cff3d9d3550b',
     ),
   ),
 );

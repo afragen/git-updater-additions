@@ -1,11 +1,11 @@
 <?php
 /**
- * GitHub Updater Additions
+ * Git Updater Additions
  *
  * @author    Andy Fragen
  * @license   MIT
- * @link      https://github.com/afragen/github-updater-additions
- * @package   github-updater-additions
+ * @link      https://github.com/afragen/git-updater-additions
+ * @package   git-updater-additions
  */
 
 namespace Fragen\Git_Updater\Additions;
@@ -15,14 +15,14 @@ use Fragen\Singleton;
 /**
  * Class Additions
  *
- * Add repos without required headers to GitHub Updater.
+ * Add repos without required headers to Git Updater.
  * Uses JSON config data file and companion plugin.
  *
  * @uses \Fragen\Singleton
  */
 class Additions {
 	/**
-	 * Holds array of plugin/theme headers to add to GitHub Updater.
+	 * Holds array of plugin/theme headers to add to Git Updater.
 	 *
 	 * @access public
 	 * @var array
@@ -56,7 +56,7 @@ class Additions {
 	}
 
 	/**
-	 * Add GitHub Updater headers to plugins/themes via a filter hooks.
+	 * Add Git Updater headers to plugins/themes via a filter hooks.
 	 *
 	 * @access public
 	 * @uses   \Fragen\Git_Updater\Additions::add_to_github_updater()

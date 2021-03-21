@@ -1,11 +1,11 @@
 <?php
 /**
- * GitHub Updater Additions
+ * Git Updater Additions
  *
  * @author  Andy Fragen
  * @license MIT
- * @link    https://github.com/afragen/github-updater-additions
- * @package github-updater-additions
+ * @link    https://github.com/afragen/git-updater-additions
+ * @package git-updater-additions
  * @source  List Table Example Plugin by Matt van Andel
  *          Copyright 2015, GPL2
  */
@@ -64,7 +64,7 @@ class Repo_List_Table extends \WP_List_Table {
 			],
 		];
 		// self::$examples = $examples;
-		self::$options = get_site_option( 'github_updater_additions', [] );
+		self::$options = get_site_option( 'git_updater_additions', [] );
 
 		// Set parent defaults.
 		parent::__construct(
@@ -192,9 +192,9 @@ class Repo_List_Table extends \WP_List_Table {
 	public function get_columns() {
 		$columns = [
 			'cb'   => '<input type="checkbox" />', // Render a checkbox instead of text.
-			'slug' => esc_html__( 'Slug', 'github-updater-additions' ),
-			'uri'  => esc_html__( 'URL', 'github-updater-additions' ),
-			'type' => esc_html__( 'Type', 'github-updater-additions' ),
+			'slug' => esc_html__( 'Slug', 'git-updater-additions' ),
+			'uri'  => esc_html__( 'URL', 'git-updater-additions' ),
+			'type' => esc_html__( 'Type', 'git-updater-additions' ),
 		];
 
 		return $columns;
@@ -240,7 +240,7 @@ class Repo_List_Table extends \WP_List_Table {
 			 **************************************************************************/
 	public function get_bulk_actions() {
 		$actions = [
-			'delete' => esc_html__( 'Delete', 'github-updater-additions' ),
+			'delete' => esc_html__( 'Delete', 'git-updater-additions' ),
 		];
 
 		// return $actions;
@@ -264,13 +264,13 @@ class Repo_List_Table extends \WP_List_Table {
 				foreach ( self::$options as $key => $option ) {
 					if ( in_array( $slug, $option, true ) ) {
 						unset( self::$options[ $key ] );
-						update_site_option( 'github_updater_additions', self::$options );
+						update_site_option( 'git_updater_additions', self::$options );
 					}
 				}
 			}
 		}
 		if ( 'edit' === $this->current_action() ) {
-			wp_die( esc_html__( 'Items would go to edit when we write that code.', 'github-updater-additions' ) );
+			wp_die( esc_html__( 'Items would go to edit when we write that code.', 'git-updater-additions' ) );
 		}
 	}
 
@@ -292,10 +292,10 @@ class Repo_List_Table extends \WP_List_Table {
 			}
 		}
 		if ( ! $nonce_exists ) {
-			wp_die( esc_html__( 'A nonce was not properly set. Please report an issue.', 'github-updater-additions' ) );
+			wp_die( esc_html__( 'A nonce was not properly set. Please report an issue.', 'git-updater-additions' ) );
 		}
 		if ( ! wp_verify_nonce( sanitize_key( wp_unslash( $_REQUEST[ $nonce ] ) ), $action ) ) {
-			wp_die( esc_html__( 'Your nonce did not verify.', 'github-updater-additions' ) );
+			wp_die( esc_html__( 'Your nonce did not verify.', 'git-updater-additions' ) );
 		}
 	}
 
@@ -447,7 +447,7 @@ class Repo_List_Table extends \WP_List_Table {
 		// Fetch, prepare, sort, and filter our data...
 		$this->prepare_items();
 		echo '<div class="wrap">';
-		echo '<h2>' . esc_html__( 'Additions List Table', 'github-updater-additions' ) . '</h2>';
+		echo '<h2>' . esc_html__( 'Additions List Table', 'git-updater-additions' ) . '</h2>';
 
 		// Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions.
 		echo '<form id="sites-list" method="get">';

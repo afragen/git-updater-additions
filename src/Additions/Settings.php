@@ -1,11 +1,11 @@
 <?php
 /**
- * GitHub Updater Additions
+ * Git Updater Additions
  *
  * @author    Andy Fragen
  * @license   MIT
- * @link      https://github.com/afragen/github-updater-additions
- * @package   github-updater-additions
+ * @link      https://github.com/afragen/git-updater-additions
+ * @package   git-updater-additions
  */
 
 namespace Fragen\Git_Updater\Additions;
@@ -49,7 +49,7 @@ class Settings {
 	 * Load site options.
 	 */
 	private function load_options() {
-		self::$options_additions = get_site_option( 'github_updater_additions', [] );
+		self::$options_additions = get_site_option( 'git_updater_additions', [] );
 	}
 
 	/**
@@ -83,7 +83,7 @@ class Settings {
 	 * @param array $post_data $_POST data.
 	 */
 	public function save_settings( $post_data ) {
-		$options   = get_site_option( 'github_updater_additions', [] );
+		$options   = get_site_option( 'git_updater_additions', [] );
 		$duplicate = false;
 		$bad_input = false;
 		if ( isset( $post_data['option_page'] ) &&
@@ -110,7 +110,7 @@ class Settings {
 
 			if ( ! $duplicate && ! $bad_input ) {
 				$options = array_merge( $options, $new_options );
-				update_site_option( 'github_updater_additions', $options );
+				update_site_option( 'git_updater_additions', $options );
 			}
 
 			add_filter(
@@ -126,7 +126,7 @@ class Settings {
 	 * Adds Additions tab to Settings page.
 	 */
 	public function add_settings_tabs() {
-		$install_tabs = [ 'git_updater_additions' => esc_html__( 'Additions', 'github-updater-additions' ) ];
+		$install_tabs = [ 'git_updater_additions' => esc_html__( 'Additions', 'git-updater-additions' ) ];
 		add_filter(
 			'gu_add_settings_tabs',
 			function ( $tabs ) use ( $install_tabs ) {
@@ -188,7 +188,7 @@ class Settings {
 
 		add_settings_field(
 			'type',
-			esc_html__( 'Repository Type', 'github-updater-additions' ),
+			esc_html__( 'Repository Type', 'git-updater-additions' ),
 			[ $this, 'callback_dropdown' ],
 			'git_updater_additions',
 			'git_updater_additions',
@@ -200,7 +200,7 @@ class Settings {
 
 		add_settings_field(
 			'slug',
-			esc_html__( 'Repository Slug', 'github-updater-additions' ),
+			esc_html__( 'Repository Slug', 'git-updater-additions' ),
 			[ $this, 'callback_field' ],
 			'git_updater_additions',
 			'git_updater_additions',
@@ -212,7 +212,7 @@ class Settings {
 
 		add_settings_field(
 			'uri',
-			esc_html__( 'Repository URI', 'github-updater-additions' ),
+			esc_html__( 'Repository URI', 'git-updater-additions' ),
 			[ $this, 'callback_field' ],
 			'git_updater_additions',
 			'git_updater_additions',
@@ -246,7 +246,7 @@ class Settings {
 	 */
 	public function print_section_additions() {
 		echo '<p>';
-		esc_html_e( 'If there are git repositories that do not natively support GitHub Updater you can add them here.', 'github-updater-additions' );
+		esc_html_e( 'If there are git repositories that do not natively support Git Updater you can add them here.', 'git-updater-additions' );
 		echo '</p>';
 	}
 
@@ -263,7 +263,7 @@ class Settings {
 			<input type="text" style="width:50%;" id="<?php esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]" value="">
 			<br>
 			<span class="description">
-				<?php esc_html_e( 'Ensure proper slug for plugin or theme.', 'github-updater-additions' ); ?>
+				<?php esc_html_e( 'Ensure proper slug for plugin or theme.', 'git-updater-additions' ); ?>
 			</span>
 		</label>
 		<?php

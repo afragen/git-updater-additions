@@ -1,0 +1,87 @@
+# Copyright (C) 2021 Andy Fragen
+# This file is distributed under the same license as the Git Updater Additions plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Git Updater Additions 4.1.1.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/github-updater-additions\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-03-21T17:50:26+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: git-updater-additions\n"
+
+#. Plugin Name of the plugin
+msgid "Git Updater Additions"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/afragen/git-updater-additions"
+msgstr ""
+
+#. Description of the plugin
+msgid "Add installed repositories lacking required headers to the Git Updater plugin."
+msgstr ""
+
+#. Author of the plugin
+msgid "Andy Fragen"
+msgstr ""
+
+#: src/Additions/Repo_List_Table.php:195
+msgid "Slug"
+msgstr ""
+
+#: src/Additions/Repo_List_Table.php:196
+msgid "URL"
+msgstr ""
+
+#: src/Additions/Repo_List_Table.php:197
+msgid "Type"
+msgstr ""
+
+#: src/Additions/Repo_List_Table.php:243
+msgid "Delete"
+msgstr ""
+
+#: src/Additions/Repo_List_Table.php:273
+msgid "Items would go to edit when we write that code."
+msgstr ""
+
+#: src/Additions/Repo_List_Table.php:295
+msgid "A nonce was not properly set. Please report an issue."
+msgstr ""
+
+#: src/Additions/Repo_List_Table.php:298
+msgid "Your nonce did not verify."
+msgstr ""
+
+#: src/Additions/Repo_List_Table.php:450
+msgid "Additions List Table"
+msgstr ""
+
+#: src/Additions/Settings.php:129
+msgid "Additions"
+msgstr ""
+
+#: src/Additions/Settings.php:191
+msgid "Repository Type"
+msgstr ""
+
+#: src/Additions/Settings.php:203
+msgid "Repository Slug"
+msgstr ""
+
+#: src/Additions/Settings.php:215
+msgid "Repository URI"
+msgstr ""
+
+#: src/Additions/Settings.php:249
+msgid "If there are git repositories that do not natively support Git Updater you can add them here."
+msgstr ""
+
+#: src/Additions/Settings.php:266
+msgid "Ensure proper slug for plugin or theme."
+msgstr ""

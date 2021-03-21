@@ -1,11 +1,11 @@
 <?php
 /**
- * GitHub Updater Additions
+ * Git Updater Additions
  *
  * @author    Andy Fragen
  * @license   MIT
- * @link      https://github.com/afragen/github-updater-additions
- * @package   github-updater-additions
+ * @link      https://github.com/afragen/git-updater-additions
+ * @package   git-updater-additions
  */
 
 /**
@@ -33,5 +33,5 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-delete_site_option( 'github_updater_additions' );
-delete_option( 'github_updater_additions' );
+delete_site_option( 'git_updater_additions' );
+delete_option( 'git_updater_additions' );

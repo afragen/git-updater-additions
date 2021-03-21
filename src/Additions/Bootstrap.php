@@ -1,11 +1,11 @@
 <?php
 /**
- * GitHub Updater Additions
+ * Git Updater Additions
  *
  * @author    Andy Fragen
  * @license   MIT
- * @link      https://github.com/afragen/github-updater-additions
- * @package   github-updater-additions
+ * @link      https://github.com/afragen/git-updater-additions
+ * @package   git-updater-additions
  */
 
 namespace Fragen\Git_Updater\Additions;
@@ -21,7 +21,7 @@ if ( ! defined( 'WPINC' ) ) {
 add_action(
 	'init',
 	function () {
-		load_plugin_textdomain( 'github-updater-additions' );
+		load_plugin_textdomain( 'git-updater-additions' );
 	}
 );
 
