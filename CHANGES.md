@@ -1,4 +1,5 @@
 #### [unreleased]
+* add Freemius integration
 
 #### 5.0.0 / 2021-04-15
 * rebrand as Git Updater Additions

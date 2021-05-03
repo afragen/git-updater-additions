@@ -64,6 +64,9 @@ class Bootstrap {
 		if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' ) ) {
 			return false;
 		}
+		if ( ! gua_fs()->can_use_premium_code() ) {
+			return;
+		}
 
 		( new Settings() )->load_hooks();
 	}
