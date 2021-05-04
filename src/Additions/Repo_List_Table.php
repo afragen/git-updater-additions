@@ -106,6 +106,7 @@ class Repo_List_Table extends \WP_List_Table {
 			case 'type':
 				return $item[ $column_name ];
 			default:
+				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 				return print_r( $item, true ); // Show the whole array for troubleshooting purposes.
 		}
 	}
@@ -237,7 +238,7 @@ class Repo_List_Table extends \WP_List_Table {
 	 * Also note that list tables are not automatically wrapped in <form> elements,
 	 * so you will need to create those manually in order for bulk actions to function.
 	 *
-	 * @return array An associative array containing all the bulk actions: 'slugs'=>'Visible Titles'
+	 * @return void|array An associative array containing all the bulk actions: 'slugs'=>'Visible Titles'
 	 **************************************************************************/
 	public function get_bulk_actions() {
 		$actions = [
