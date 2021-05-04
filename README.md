@@ -4,7 +4,7 @@
 * Requires at least: 5.2
 * Requires PHP: 5.6
 * Stable tag: master
-* Donate link: http://thefragens.com/github-updater-donate
+* Donate link: https://thefragens.com/git-updater-donate
 * License: MIT
 
 A plugin that allows for adding installed plugins or themes hosted on GitHub, Bitbucket, GitLab, or Gitea that do not contain required headers to Git Updater.

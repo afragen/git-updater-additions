@@ -17,12 +17,16 @@
   },
   "prefer-stable": true,
   "require": {
-    "php": ">=5.6"
+    "php": ">=5.6",
+    "freemius/wordpress-sdk": "*"
   },
   "autoload": {
     "psr-4": {
       "Fragen\\Git_Updater\\Additions\\": "src/Additions/"
-    }
+    },
+    "files": [
+      "./vendor/freemius/wordpress-sdk/start.php"
+    ]
   },
   "scripts": {
     "post-update-cmd": [

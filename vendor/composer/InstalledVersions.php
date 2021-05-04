@@ -20,6 +20,8 @@ use Composer\Semver\VersionParser;
 
 
 
+
+
 class InstalledVersions
 {
 private static $installed = array (
@@ -30,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '5f878ccb51d4eff480d5bf0921f70582388317e3',
+    'reference' => 'b970d84db990c2c7eb52f1f1f3a7f8b6e4347543',
     'name' => 'afragen/git-updater-additions',
   ),
   'versions' => 
@@ -42,7 +44,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '5f878ccb51d4eff480d5bf0921f70582388317e3',
+      'reference' => 'a2f9e4430dc28823fa6dae76e5fe47e1c1af8a44',
+    ),
+    'freemius/wordpress-sdk' => 
+    array (
+      'pretty_version' => '2.4.2',
+      'version' => '2.4.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '84a9be4717effd7697a217e0d931f48ae0d2ecc6',
     ),
   ),
 );
@@ -61,7 +72,6 @@ $packages = array();
 foreach (self::getInstalled() as $installed) {
 $packages[] = array_keys($installed['versions']);
 }
-
 
 if (1 === \count($packages)) {
 return $packages[0];
@@ -254,6 +264,7 @@ public static function reload($data)
 self::$installed = $data;
 self::$installedByVendor = array();
 }
+
 
 
 
