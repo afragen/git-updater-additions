@@ -27,24 +27,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-develop',
+    'version' => 'dev-develop',
     'aliases' => 
     array (
     ),
-    'reference' => 'b970d84db990c2c7eb52f1f1f3a7f8b6e4347543',
+    'reference' => '948ee0bf1f257fdbbc6fdd5167fcfa4293a5abf2',
     'name' => 'afragen/git-updater-additions',
   ),
   'versions' => 
   array (
     'afragen/git-updater-additions' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-develop',
+      'version' => 'dev-develop',
       'aliases' => 
       array (
       ),
-      'reference' => 'a2f9e4430dc28823fa6dae76e5fe47e1c1af8a44',
+      'reference' => '948ee0bf1f257fdbbc6fdd5167fcfa4293a5abf2',
     ),
     'freemius/wordpress-sdk' => 
     array (
