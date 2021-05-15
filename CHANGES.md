@@ -1,4 +1,5 @@
 #### [unreleased]
+* update Freemius integration
 
 #### 5.2.0 / 2021-05-03
 * update branding logos

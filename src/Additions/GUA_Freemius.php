@@ -44,6 +44,7 @@ class GUA_Freemius {
 						[
 							'id'               => '8313',
 							'slug'             => 'git-updater-additions',
+							'premium_slug'     => 'git-updater-additions',
 							'type'             => 'plugin',
 							'public_key'       => 'pk_fb31d805f07c78b81299c52806262',
 							'is_premium'       => true,
