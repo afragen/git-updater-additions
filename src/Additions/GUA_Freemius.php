@@ -57,9 +57,12 @@ class GUA_Freemius {
 								'is_require_payment' => true,
 							],
 							'menu'             => [
-								'first-path' => 'plugins.php',
-								'contact'    => false,
-								'support'    => false,
+								'slug'    => 'git-updater',
+								'contact' => false,
+								'support' => false,
+								'parent'  => [
+									'slug' => 'options-general.php',
+								],
 							],
 						]
 					);
