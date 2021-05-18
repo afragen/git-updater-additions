@@ -76,5 +76,15 @@ class GUA_Freemius {
 			// Signal that SDK was initiated.
 			do_action( 'gua_fs_loaded' );
 		}
+		gua_fs()->add_filter( 'plugin_icon', [ $this, 'add_icon' ] );
+	}
+
+	/**
+	 * Add custom plugin icon to update notice.
+	 *
+	 * @return string
+	 */
+	public function add_icon() {
+		return dirname( __DIR__, 2 ) . '/assets/icon.svg';
 	}
 }

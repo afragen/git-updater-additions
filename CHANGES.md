@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 5.2.3 / 2021-05-18
+* ensure custom icon shows in update notice from Freemius
+
 #### 5.2.2 / 2021-05-17
 * update Freemius integration
 
