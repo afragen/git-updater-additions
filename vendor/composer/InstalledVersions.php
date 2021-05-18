@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'bc5f85af72cc55cca4a78eed95bfc6e0fee8a1b6',
+    'reference' => 'a2c3e63829723e331b9e08e98758956107855aa4',
     'name' => 'afragen/git-updater-additions',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'bc5f85af72cc55cca4a78eed95bfc6e0fee8a1b6',
+      'reference' => 'a2c3e63829723e331b9e08e98758956107855aa4',
     ),
     'freemius/wordpress-sdk' => 
     array (
