@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '948ee0bf1f257fdbbc6fdd5167fcfa4293a5abf2',
+    'reference' => '003a794a4031c7b2d7fdcf446a7fcaff132d2646',
     'name' => 'afragen/git-updater-additions',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '948ee0bf1f257fdbbc6fdd5167fcfa4293a5abf2',
+      'reference' => '003a794a4031c7b2d7fdcf446a7fcaff132d2646',
     ),
     'freemius/wordpress-sdk' => 
     array (
