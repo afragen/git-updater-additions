@@ -13,13 +13,14 @@
  * Plugin Name:       Git Updater Additions
  * Plugin URI:        https://github.com/afragen/git-updater-additions
  * Description:       Add installed repositories lacking required headers to the Git Updater plugin.
- * Version:           5.2.3
+ * Version:           5.2.4
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
  * Domain Path:       /languages
  * Text Domain:       git-updater-additions
  * GitHub Plugin URI: https://github.com/afragen/git-updater-additions
+ * GitHub Languages:  https://github.com/afragen/git-updater-additions-translations
  * Requires at least: 5.2
  * Requires PHP:      7.0
  */
