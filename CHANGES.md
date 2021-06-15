@@ -1,5 +1,6 @@
 #### [unreleased]
 * update Freemius for multisite
+* remove Freemius from the autoloader
 
 #### 5.2.4 / 2021-05-21
 * add language pack updating
