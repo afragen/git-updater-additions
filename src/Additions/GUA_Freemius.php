@@ -61,7 +61,7 @@ class GUA_Freemius {
 								'contact' => false,
 								'support' => false,
 								'parent'  => [
-									'slug' => 'options-general.php',
+									'slug' => is_multisite() ? 'settings.php' : 'options-general.php',
 								],
 							],
 						]
