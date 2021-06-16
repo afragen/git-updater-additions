@@ -29,8 +29,6 @@ class GUA_Freemius {
 	 * @return array|void
 	 */
 	public function init() {
-		require_once dirname( __DIR__, 2 ) . '/vendor/freemius/wordpress-sdk/start.php';
-
 		if ( ! function_exists( 'gua_fs' ) ) {
 
 			/**
@@ -42,6 +40,10 @@ class GUA_Freemius {
 				global $gua_fs;
 
 				if ( ! isset( $gua_fs ) ) {
+
+					// Init Freemius SDK.
+					require_once dirname( __DIR__, 2 ) . '/vendor/freemius/wordpress-sdk/start.php';
+
 					$gua_fs = fs_dynamic_init(
 						[
 							'id'               => '8313',
