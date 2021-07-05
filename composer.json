@@ -22,7 +22,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Fragen\\Git_Updater\\Additions\\": "src/Additions/"
+      "Fragen\\Git_Updater\\Additions\\": "src/Additions/",
+      "Fragen\\Git_Updater\\": "src/Git_Updater"
     }
   },
   "scripts": {
