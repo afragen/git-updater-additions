@@ -22,11 +22,9 @@
   },
   "autoload": {
     "psr-4": {
-      "Fragen\\Git_Updater\\Additions\\": "src/Additions/"
-    },
-    "files": [
-      "./vendor/freemius/wordpress-sdk/start.php"
-    ]
+      "Fragen\\Git_Updater\\Additions\\": "src/Additions/",
+      "Fragen\\Git_Updater\\": "src/Git_Updater"
+    }
   },
   "scripts": {
     "post-update-cmd": [

@@ -10,6 +10,8 @@
 
 namespace Fragen\Git_Updater\Additions;
 
+use Fragen\Git_Updater\Shim;
+
 /*
  * Exit if called directly.
  */
@@ -40,6 +42,10 @@ class GUA_Freemius {
 				global $gua_fs;
 
 				if ( ! isset( $gua_fs ) ) {
+
+					// Init Freemius SDK.
+					require_once Shim::dirname( __DIR__, 2 ) . '/vendor/freemius/wordpress-sdk/start.php';
+
 					$gua_fs = fs_dynamic_init(
 						[
 							'id'               => '8313',
@@ -61,7 +67,7 @@ class GUA_Freemius {
 								'contact' => false,
 								'support' => false,
 								'parent'  => [
-									'slug' => 'options-general.php',
+									'slug' => is_multisite() ? 'settings.php' : 'options-general.php',
 								],
 							],
 						]
@@ -85,6 +91,6 @@ class GUA_Freemius {
 	 * @return string
 	 */
 	public function add_icon() {
-		return dirname( __DIR__, 2 ) . '/assets/icon.svg';
+		return Shim::dirname( __DIR__, 2 ) . '/assets/icon.svg';
 	}
 }

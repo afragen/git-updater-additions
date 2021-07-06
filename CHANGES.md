@@ -1,5 +1,10 @@
 #### [unreleased]
 
+#### 5.3.0 / 2021-07-05
+* update Freemius for multisite
+* remove Freemius from the autoloader
+* uses new `class Fragen\Git_Updater\Shim` for PHP 5.6 compatibility, will remove when WP core changes minimum requirement
+
 #### 5.2.4 / 2021-05-21
 * add language pack updating
 
