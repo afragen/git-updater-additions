@@ -83,7 +83,7 @@ class Settings {
 	 * @param array $post_data $_POST data.
 	 */
 	public function save_settings( $post_data ) {
-		$options   = get_site_option( 'git_updater_additions', [] );
+		$options   = (array) get_site_option( 'git_updater_additions', [] );
 		$duplicate = false;
 		$bad_input = false;
 		if ( isset( $post_data['option_page'] ) &&
@@ -109,7 +109,8 @@ class Settings {
 			}
 
 			if ( ! $duplicate && ! $bad_input ) {
-				$options = array_merge( $options, $new_options );
+				$options = array_merge( (array) $options, $new_options );
+				$options = array_filter( $options );
 				update_site_option( 'git_updater_additions', $options );
 			}
 
@@ -207,6 +208,7 @@ class Settings {
 			[
 				'id'      => 'git_updater_additions_slug',
 				'setting' => 'slug',
+				'title'   => __( 'Ensure proper slug for plugin or theme.', 'git-updater-addtions' ),
 			]
 		);
 
@@ -219,6 +221,33 @@ class Settings {
 			[
 				'id'      => 'git_updater_additions_uri',
 				'setting' => 'uri',
+				'title'   => __( 'Ensure proper URI for plugin or theme.', 'git-updater-addtions' ),
+			]
+		);
+
+		add_settings_field(
+			'primary_branch',
+			esc_html__( 'Primary Branch', 'git-updater-additions' ),
+			[ $this, 'callback_field' ],
+			'git_updater_additions',
+			'git_updater_additions',
+			[
+				'id'      => 'git_updater_additions_primary_branch',
+				'setting' => 'primary_branch',
+				'title'   => __( 'Ensure proper primary branch, default is `master`', 'git-updater-additions' ),
+			]
+		);
+
+		add_settings_field(
+			'release_asset',
+			esc_html__( 'Release Asset', 'git-updater-additions' ),
+			[ $this, 'callback_checkbox' ],
+			'git_updater_additions',
+			'git_updater_additions',
+			[
+				'id'      => 'git_updater_additions_release_asset',
+				'setting' => 'release_asset',
+				'title'   => __( 'Check if a release asset is required.', 'git-updater-additions' ),
 			]
 		);
 	}
@@ -236,7 +265,7 @@ class Settings {
 		foreach ( (array) $input as $key => $value ) {
 			$new_input[0][ $key ] = 'uri' === $key ? untrailingslashit( esc_url_raw( trim( $value ) ) ) : sanitize_text_field( $value );
 		}
-			$new_input[0]['ID'] = md5( $new_input[0]['slug'] );
+		$new_input[0]['ID'] = md5( $new_input[0]['slug'] );
 
 		return $new_input;
 	}
@@ -263,7 +292,7 @@ class Settings {
 			<input type="text" style="width:50%;" id="<?php esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]" value="">
 			<br>
 			<span class="description">
-				<?php esc_html_e( 'Ensure proper slug for plugin or theme.', 'git-updater-additions' ); ?>
+				<?php esc_attr_e( $args['title'] ); ?>
 			</span>
 		</label>
 		<?php
@@ -297,4 +326,18 @@ class Settings {
 		<?php
 	}
 
+	/**
+	 * Get the settings option array and print one of its values.
+	 *
+	 * @param array $args Callback args.
+	 */
+	public function callback_checkbox( $args ) {
+		$checked = isset( self::$options_additions[ $args['id'] ] ) ? self::$options_additions[ $args['id'] ] : null;
+		?>
+		<label for="<?php esc_attr_e( $args['id'] ); ?>">
+			<input type="checkbox" id="<?php esc_attr_e( $args['id'] ); ?>" name="git_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]" value="1" <?php checked( 1, intval( $checked ), true ); ?> <?php disabled( '-1', $checked, true ); ?> >
+			<?php echo esc_attr( $args['title'] ); ?>
+		</label>
+		<?php
+	}
 }

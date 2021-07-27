@@ -1,4 +1,5 @@
 #### [unreleased]
+* add settings for `Primary Branch` and `Release Asset`
 
 #### 5.3.0 / 2021-07-05
 * update Freemius for multisite
