@@ -71,7 +71,7 @@ class Repo_List_Table extends \WP_List_Table {
 			$option['type']           = $option['type'] ?: null;
 			$option['slug']           = $option['slug'] ?: null;
 			$option['uri']            = $option['uri'] ?: null;
-			$option['primary_branch'] = isset( $option['primary_branch'] ) ? $option['primary_branch'] : 'master';
+			$option['primary_branch'] = ! empty( $option['primary_branch'] ) ? $option['primary_branch'] : 'master';
 			$option['release_asset']  = isset( $option['release_asset'] ) ? '<span class="dashicons dashicons-yes"></span>' : null;
 			$options[ $key ]          = $option;
 		}
