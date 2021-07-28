@@ -159,7 +159,7 @@ class Settings {
 			);
 			( new Repo_List_Table( self::$options_additions ) )->render_list_table();
 			?>
-			<form class="settings" method="post" action="<?php esc_attr_e( $action ); ?>">
+			<form class="settings" method="post" action="<?php echo esc_attr( $action ); ?>">
 				<?php
 				settings_fields( 'git_updater_additions' );
 				do_settings_sections( 'git_updater_additions' );
@@ -288,11 +288,11 @@ class Settings {
 	 */
 	public function callback_field( $args ) {
 		?>
-		<label for="<?php esc_attr_e( $args['id'] ); ?>">
-			<input type="text" style="width:50%;" id="<?php esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]" value="">
+		<label for="<?php echo esc_attr( $args['id'] ); ?>">
+			<input type="text" style="width:50%;" id="<?php esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php echo esc_attr( $args['setting'] ); ?>]" value="">
 			<br>
 			<span class="description">
-				<?php esc_attr_e( $args['title'] ); ?>
+				<?php echo esc_attr( $args['title'] ); ?>
 			</span>
 		</label>
 		<?php
@@ -308,8 +308,8 @@ class Settings {
 	public function callback_dropdown( $args ) {
 		$options['type'] = [ 'github_plugin' ];
 		?>
-		<label for="<?php esc_attr_e( $args['id'] ); ?>">
-		<select id="<?php esc_attr_e( $args['id'] ); ?>" name="git_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]">
+		<label for="<?php echo esc_attr( $args['id'] ); ?>">
+		<select id="<?php echo esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php echo esc_attr( $args['setting'] ); ?>]">
 		<?php
 		foreach ( self::$addition_types as $item ) {
 			printf(
@@ -334,8 +334,8 @@ class Settings {
 	public function callback_checkbox( $args ) {
 		$checked = isset( self::$options_additions[ $args['id'] ] ) ? self::$options_additions[ $args['id'] ] : null;
 		?>
-		<label for="<?php esc_attr_e( $args['id'] ); ?>">
-			<input type="checkbox" id="<?php esc_attr_e( $args['id'] ); ?>" name="git_updater_additions[<?php esc_attr_e( $args['setting'] ); ?>]" value="1" <?php checked( 1, intval( $checked ), true ); ?> <?php disabled( '-1', $checked, true ); ?> >
+		<label for="<?php echo esc_attr( $args['id'] ); ?>">
+			<input type="checkbox" id="<?php echo esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php echo esc_attr( $args['setting'] ); ?>]" value="1" <?php checked( 1, intval( $checked ), true ); ?> <?php disabled( '-1', $checked, true ); ?> >
 			<?php echo esc_attr( $args['title'] ); ?>
 		</label>
 		<?php
