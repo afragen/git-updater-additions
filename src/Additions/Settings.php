@@ -109,7 +109,7 @@ class Settings {
 			}
 
 			if ( ! $duplicate && ! $bad_input ) {
-				$options = array_merge( (array) $options, $new_options );
+				$options = array_merge( $options, $new_options );
 				$options = array_filter( $options );
 				update_site_option( 'git_updater_additions', $options );
 			}
