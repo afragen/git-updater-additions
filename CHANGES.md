@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 5.4.0 / 2021-08-03
 * add settings for `Primary Branch` and `Release Asset`
 * only use `esc_attr_e` for translating strings
 
