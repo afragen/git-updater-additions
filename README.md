@@ -34,6 +34,10 @@ The `"slug"` element is either the plugin slug or the theme stylesheet slug.
 
 The `"uri"` element should be self-explanatory.
 
+The `"primary_branch"` element if the repository's primary branch is not `master`.
+
+The `"release_asset"` element if the repository has a build process and is distibuted via a release asset.
+
 ### Examples
 
 ```

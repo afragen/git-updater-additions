@@ -66,7 +66,16 @@ class Repo_List_Table extends \WP_List_Table {
 			],
 		];
 		// self::$examples = $examples;
-		self::$options = $options;
+		foreach ( (array) $options as $key => $option ) {
+			$option['ID']             = $option['ID'] ?: null;
+			$option['type']           = $option['type'] ?: null;
+			$option['slug']           = $option['slug'] ?: null;
+			$option['uri']            = $option['uri'] ?: null;
+			$option['primary_branch'] = ! empty( $option['primary_branch'] ) ? $option['primary_branch'] : 'master';
+			$option['release_asset']  = isset( $option['release_asset'] ) ? '<span class="dashicons dashicons-yes"></span>' : null;
+			$options[ $key ]          = $option;
+		}
+		self::$options = (array) $options;
 
 		// Set parent defaults.
 		parent::__construct(
@@ -103,6 +112,8 @@ class Repo_List_Table extends \WP_List_Table {
 		switch ( $column_name ) {
 			case 'uri':
 			case 'slug':
+			case 'primary_branch':
+			case 'release_asset':
 			case 'type':
 				return $item[ $column_name ];
 			default:
@@ -193,10 +204,12 @@ class Repo_List_Table extends \WP_List_Table {
 	 **************************************************************************/
 	public function get_columns() {
 		$columns = [
-			'cb'   => '<input type="checkbox" />', // Render a checkbox instead of text.
-			'slug' => esc_html__( 'Slug', 'git-updater-additions' ),
-			'uri'  => esc_html__( 'URL', 'git-updater-additions' ),
-			'type' => esc_html__( 'Type', 'git-updater-additions' ),
+			'cb'             => '<input type="checkbox" />', // Render a checkbox instead of text.
+			'slug'           => esc_html__( 'Slug', 'git-updater-additions' ),
+			'uri'            => esc_html__( 'URL', 'git-updater-additions' ),
+			'primary_branch' => esc_html__( 'Primary Branch', 'git-updater-additions' ),
+			'release_asset'  => esc_html__( 'Release Asset', 'git-updater-additions' ),
+			'type'           => esc_html__( 'Type', 'git-updater-additions' ),
 		];
 
 		return $columns;
