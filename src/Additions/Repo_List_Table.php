@@ -204,7 +204,7 @@ class Repo_List_Table extends \WP_List_Table {
 	 **************************************************************************/
 	public function get_columns() {
 		$columns = [
-			'cb'             => '<input type="checkbox" />', // Render a checkbox instead of text.
+			// 'cb'             => '<input type="checkbox" />', // Render a checkbox instead of text.
 			'slug'           => esc_html__( 'Slug', 'git-updater-additions' ),
 			'uri'            => esc_html__( 'URL', 'git-updater-additions' ),
 			'primary_branch' => esc_html__( 'Primary Branch', 'git-updater-additions' ),
