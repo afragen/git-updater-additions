@@ -13,7 +13,7 @@
  * Plugin Name:       Git Updater Additions
  * Plugin URI:        https://github.com/afragen/git-updater-additions
  * Description:       Add installed repositories lacking required headers to the Git Updater plugin.
- * Version:           5.4.0.1
+ * Version:           5.4.0.2
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
