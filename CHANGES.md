@@ -2,6 +2,7 @@
 * remove checkbox from list table
 * update screenshot
 * use `sanitize_title_with_dashes()` as `sanitize_file_name()` maybe have attached filter that changes output
+* use filter to add repository types
 
 #### 5.4.0 / 2021-08-03
 * add settings for `Primary Branch` and `Release Asset`
