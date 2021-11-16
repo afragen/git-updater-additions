@@ -1,4 +1,6 @@
 #### [unreleased]
+
+#### 5.5.0 / 2021-11-15
 * remove checkbox from list table
 * update screenshot
 * use `sanitize_title_with_dashes()` as `sanitize_file_name()` maybe have attached filter that changes output

@@ -5,7 +5,7 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '8d1dc6a7faa93640b637dc3635c005258abfa4d1',
+        'reference' => '670c36a9125e4d768b8652bab5c693485063c6d4',
         'name' => 'afragen/git-updater-additions',
         'dev' => false,
     ),
@@ -16,7 +16,7 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '8d1dc6a7faa93640b637dc3635c005258abfa4d1',
+            'reference' => '670c36a9125e4d768b8652bab5c693485063c6d4',
             'dev_requirement' => false,
         ),
         'freemius/wordpress-sdk' => array(
