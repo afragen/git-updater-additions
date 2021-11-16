@@ -31,7 +31,6 @@ class Settings {
 		'github_theme',
 	];
 
-
 	/**
 	 * Settings constructor.
 	 */
