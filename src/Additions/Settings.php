@@ -29,12 +29,6 @@ class Settings {
 	public static $addition_types = [
 		'github_plugin',
 		'github_theme',
-		'bitbucket_plugin',
-		'bitbucket_theme',
-		'gitlab_plugin',
-		'gitlab_theme',
-		'gitea_plugin',
-		'gitea_theme',
 	];
 
 
@@ -311,7 +305,8 @@ class Settings {
 		<label for="<?php echo esc_attr( $args['id'] ); ?>">
 		<select id="<?php echo esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php echo esc_attr( $args['setting'] ); ?>]">
 		<?php
-		foreach ( self::$addition_types as $item ) {
+		$addition_types = apply_filters( 'gua_addition_types', self::$addition_types );
+		foreach ( $addition_types as $item ) {
 			printf(
 				'<option value="%s" %s>%s</option>',
 				esc_attr( $item ),
