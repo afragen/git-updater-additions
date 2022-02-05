@@ -1,4 +1,5 @@
 #### [unreleased]
+* add nonce check for saving settings
 
 #### 5.5.0 / 2021-11-15
 * remove checkbox from list table
