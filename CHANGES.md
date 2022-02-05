@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 5.5.1 / 2022-02-05
+* add nonce check for saving settings
+
 #### 5.5.0 / 2021-11-15
 * remove checkbox from list table
 * update screenshot
