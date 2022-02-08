@@ -76,7 +76,7 @@ class Settings {
 	 * @param array $post_data $_POST data.
 	 */
 	public function save_settings( $post_data ) {
-		if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), 'git_updater_additions-options' ) ) {
+		if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['_wpnonce'] ) ), 'git_updater_additions-options' ) ) {
 			return;
 		}
 		$options   = (array) get_site_option( 'git_updater_additions', [] );
