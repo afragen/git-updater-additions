@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 5.5.3 / 2022-03-02
+* update Freemius/wordpress-sdk
+
 #### 5.5.2 / 2022-02-08
 * use `sanitize_key()` for nonces
 * update nonce check in `class Repo_List_Table`
