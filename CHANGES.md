@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 5.5.4 / 2022-03-10
+* composer update
+
 #### 5.5.3 / 2022-03-02
 * update Freemius/wordpress-sdk
 
