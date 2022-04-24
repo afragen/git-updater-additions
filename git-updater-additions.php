@@ -22,7 +22,7 @@
  * GitHub Plugin URI: https://github.com/afragen/git-updater-additions
  * GitHub Languages:  https://github.com/afragen/git-updater-additions-translations
  * Requires at least: 5.2
- * Requires PHP:      5.6
+ * Requires PHP:      7.2
  */
 
 namespace Fragen\Git_Updater\Additions;
