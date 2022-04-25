@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 6.0.0 / 2022-04-24
+* requires PHP 7.2+
+
 #### 5.5.4 / 2022-03-10
 * composer update
 
