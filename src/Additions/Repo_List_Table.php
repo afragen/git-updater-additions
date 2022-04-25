@@ -274,7 +274,7 @@ class Repo_List_Table extends \WP_List_Table {
 			) {
 			return;
 		}
-		$slugs = isset( $_REQUEST['slug'] ) ? wp_unslash( $_REQUEST['slug'] ) : null;
+		$slugs = isset( $_REQUEST['slug'] ) ? sanitize_key( wp_unslash( $_REQUEST['slug'] ) ) : null;
 		$slugs = is_array( $slugs ) ? $slugs : (array) $slugs;
 		foreach ( $slugs as $slug ) {
 			foreach ( self::$options as $key => $option ) {

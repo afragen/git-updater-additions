@@ -3,7 +3,7 @@
 * Contributors: afragen
 * Tags: plugin, theme, github-updater, extension
 * Requires at least: 5.2
-* Requires PHP: 5.6
+* Requires PHP: 7.2
 * Tested up to: trunk
 * Stable tag: master
 * Donate link: https://thefragens.com/git-updater-donate
