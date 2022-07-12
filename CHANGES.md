@@ -1,5 +1,5 @@
 #### [unreleased]
-* update Freemius WordPress SDK
+* update Freemius/wordpress-sdk
 * add placeholder text for slug and branch
 
 #### 6.0.0 / 2022-04-24
