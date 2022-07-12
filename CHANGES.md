@@ -1,5 +1,6 @@
 #### [unreleased]
 * update Freemius WordPress SDK
+* add placeholder text for slug
 
 #### 6.0.0 / 2022-04-24
 * requires PHP 7.2+
