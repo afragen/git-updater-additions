@@ -1,4 +1,5 @@
 #### [unreleased]
+* update Freemius WordPress SDK
 
 #### 6.0.0 / 2022-04-24
 * requires PHP 7.2+
