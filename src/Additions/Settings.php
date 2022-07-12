@@ -229,9 +229,10 @@ class Settings {
 			'git_updater_additions',
 			'git_updater_additions',
 			[
-				'id'      => 'git_updater_additions_primary_branch',
-				'setting' => 'primary_branch',
-				'title'   => __( 'Ensure proper primary branch, default is `master`', 'git-updater-additions' ),
+				'id'          => 'git_updater_additions_primary_branch',
+				'setting'     => 'primary_branch',
+				'title'       => __( 'Ensure proper primary branch, default is `master`', 'git-updater-additions' ),
+				'placeholder' => 'master',
 			]
 		);
 
