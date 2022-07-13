@@ -30,7 +30,7 @@ class Additions {
 	public $add_to_git_updater;
 
 	/**
-	 * Register JSON config file.
+	 * Register config.
 	 *
 	 * @access public
 	 *
