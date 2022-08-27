@@ -18,7 +18,7 @@
   "prefer-stable": true,
   "require": {
     "php": ">=7.2",
-    "freemius/wordpress-sdk": "*"
+    "freemius/wordpress-sdk": "^2.4"
   },
   "autoload": {
     "psr-4": {

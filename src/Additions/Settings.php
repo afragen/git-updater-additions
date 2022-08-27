@@ -202,9 +202,10 @@ class Settings {
 			'git_updater_additions',
 			'git_updater_additions',
 			[
-				'id'      => 'git_updater_additions_slug',
-				'setting' => 'slug',
-				'title'   => __( 'Ensure proper slug for plugin or theme.', 'git-updater-addtions' ),
+				'id'          => 'git_updater_additions_slug',
+				'setting'     => 'slug',
+				'title'       => __( 'Ensure proper slug for plugin or theme.', 'git-updater-addtions' ),
+				'placeholder' => 'plugin-slug/plugin-slug.php',
 			]
 		);
 
@@ -228,9 +229,10 @@ class Settings {
 			'git_updater_additions',
 			'git_updater_additions',
 			[
-				'id'      => 'git_updater_additions_primary_branch',
-				'setting' => 'primary_branch',
-				'title'   => __( 'Ensure proper primary branch, default is `master`', 'git-updater-additions' ),
+				'id'          => 'git_updater_additions_primary_branch',
+				'setting'     => 'primary_branch',
+				'title'       => __( 'Ensure proper primary branch, default is `master`', 'git-updater-additions' ),
+				'placeholder' => 'master',
 			]
 		);
 
@@ -259,7 +261,7 @@ class Settings {
 		$new_input = [];
 
 		foreach ( (array) $input as $key => $value ) {
-			$new_input[0][ $key ] = 'uri' === $key ? untrailingslashit( esc_url_raw( trim( $value ) ) ) : sanitize_text_field( $value );
+			$new_input[0][ $key ] = 'uri' === $key ? untrailingslashit( sanitize_url( trim( $value ) ) ) : sanitize_text_field( $value );
 		}
 		$new_input[0]['ID'] = md5( $new_input[0]['slug'] );
 
@@ -283,9 +285,10 @@ class Settings {
 	 * @return void
 	 */
 	public function callback_field( $args ) {
+		$placeholder = isset( $args['placeholder'] ) ? $args['placeholder'] : null;
 		?>
 		<label for="<?php echo esc_attr( $args['id'] ); ?>">
-			<input type="text" style="width:50%;" id="<?php esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php echo esc_attr( $args['setting'] ); ?>]" value="">
+			<input type="text" style="width:50%;" id="<?php esc_attr( $args['id'] ); ?>" name="git_updater_additions[<?php echo esc_attr( $args['setting'] ); ?>]" value="" placeholder="<?php echo esc_attr( $placeholder ); ?>">
 			<br>
 			<span class="description">
 				<?php echo esc_attr( $args['title'] ); ?>

@@ -1,5 +1,10 @@
 #### [unreleased]
 
+#### 6.0.1 / 2022-08-27
+* update Freemius/wordpress-sdk
+* add placeholder text for slug and branch
+* add `function_exists` check for Freemius function, issue during wp-cli
+
 #### 6.0.0 / 2022-04-24
 * requires PHP 7.2+
 

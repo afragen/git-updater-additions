@@ -30,7 +30,7 @@ class Additions {
 	public $add_to_git_updater;
 
 	/**
-	 * Register JSON config file.
+	 * Register config.
 	 *
 	 * @access public
 	 *
@@ -47,7 +47,7 @@ class Additions {
 
 		// Bail if Git Updater not active.
 		if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' )
-			|| ! gua_fs()->can_use_premium_code()
+			|| ( function_exists( 'gua_fs' ) && ! gua_fs()->can_use_premium_code() )
 		) {
 			return false;
 		}
