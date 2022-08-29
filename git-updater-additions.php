@@ -21,7 +21,7 @@
  * Text Domain:       git-updater-additions
  * GitHub Plugin URI: https://github.com/afragen/git-updater-additions
  * GitHub Languages:  https://github.com/afragen/git-updater-additions-translations
- * Requires at least: 5.2
+ * Requires at least: 5.9
  * Requires PHP:      7.2
  */
 
