@@ -64,20 +64,7 @@ class Bootstrap {
 		if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' ) ) {
 			return false;
 		}
-		if ( ! gua_fs()->can_use_premium_code() ) {
-			return;
-		}
-		gua_fs()->add_action( 'after_uninstall', [ $this, 'gua_fs_uninstall_cleanup' ] );
-		( new Settings() )->load_hooks();
-	}
 
-	/**
-	 * Freemius uninstall cleanup.
-	 *
-	 * @return void
-	 */
-	public function gua_fs_uninstall_cleanup() {
-		delete_site_option( 'git_updater_additions' );
-		delete_option( 'git_updater_additions' );
+		( new Settings() )->load_hooks();
 	}
 }

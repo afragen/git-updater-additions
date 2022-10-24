@@ -1,7 +1,7 @@
 # Git Updater Additions
 * Contributors: [Andy Fragen](https://github.com/afragen), [contributors](https://github.com/afragen/git-updater-additions/graphs/contributors)
 * Tags: plugin, theme, github-updater, extension
-* Requires at least: 5.2
+* Requires at least: 5.9
 * Requires PHP: 7.2
 * Stable tag: master
 * Donate link: https://thefragens.com/git-updater-donate

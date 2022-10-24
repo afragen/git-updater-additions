@@ -46,9 +46,7 @@ class Additions {
 		}
 
 		// Bail if Git Updater not active.
-		if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' )
-			|| ( function_exists( 'gua_fs' ) && ! gua_fs()->can_use_premium_code() )
-		) {
+		if ( ! class_exists( '\\Fragen\\Git_Updater\\Bootstrap' ) ) {
 			return false;
 		}
 

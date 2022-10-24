@@ -13,7 +13,7 @@
  * Plugin Name:       Git Updater Additions
  * Plugin URI:        https://github.com/afragen/git-updater-additions
  * Description:       Add installed repositories lacking required headers to the Git Updater plugin.
- * Version:           6.0.1
+ * Version:           6.1.0
  * Author:            Andy Fragen
  * License:           MIT
  * Network:           true
@@ -21,7 +21,7 @@
  * Text Domain:       git-updater-additions
  * GitHub Plugin URI: https://github.com/afragen/git-updater-additions
  * GitHub Languages:  https://github.com/afragen/git-updater-additions-translations
- * Requires at least: 5.2
+ * Requires at least: 5.9
  * Requires PHP:      7.2
  */
 
@@ -41,7 +41,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 add_action(
 	'plugins_loaded',
 	function() {
-		( new GUA_Freemius() )->init();
 		( new Bootstrap( __FILE__ ) )->run();
 	}
 );

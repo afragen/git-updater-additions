@@ -1,5 +1,8 @@
 #### [unreleased]
 
+#### 6.1.0 / 2022-10-24
+* remove Freemius SDK
+
 #### 6.0.1 / 2022-08-27
 * update Freemius/wordpress-sdk
 * add placeholder text for slug and branch
