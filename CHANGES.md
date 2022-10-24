@@ -1,4 +1,5 @@
 #### [unreleased]
+* remove Freemius SDK
 
 #### 6.0.1 / 2022-08-27
 * update Freemius/wordpress-sdk
